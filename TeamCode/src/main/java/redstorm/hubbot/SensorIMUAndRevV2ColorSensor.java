@@ -41,7 +41,6 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DistanceSensor;
 
-import org.firstinspires.ftc.robotcore.external.Func;
 import org.firstinspires.ftc.robotcore.external.navigation.Acceleration;
 import org.firstinspires.ftc.robotcore.external.navigation.AngleUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.AxesOrder;
@@ -63,7 +62,7 @@ import java.util.Locale;
  */
 @TeleOp(name = "Hubbot: IMU And Rev V2 Color", group = "Hubbot")
 
-@Disabled                            // Comment this out to add to the opmode list
+//@Disabled                            // Comment this out to add to the opmode list
 public class SensorIMUAndRevV2ColorSensor extends LinearOpMode
     {
     //----------------------------------------------------------------------------------------------
