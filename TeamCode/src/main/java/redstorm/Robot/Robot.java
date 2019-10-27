@@ -163,13 +163,6 @@ public class Robot {
 
 
     }
-    public double getLiftEncoderCount() {
-       double LiftEncoderCount;
-
-
-        return LiftEncoderCount;  }
-
-
 
     /**
      * This method will return the average encoder count from the left and right drive motors
