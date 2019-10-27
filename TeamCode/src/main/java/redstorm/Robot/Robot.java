@@ -1,7 +1,10 @@
 package redstorm.Robot;
 
+import android.graphics.Color;
+
 import com.qualcomm.hardware.bosch.BNO055IMU;
 import com.qualcomm.hardware.modernrobotics.ModernRoboticsI2cRangeSensor;
+import com.qualcomm.robotcore.hardware.ColorSensor;
 import com.qualcomm.robotcore.hardware.DcMotor;
 import com.qualcomm.robotcore.hardware.HardwareMap;
 import com.qualcomm.robotcore.hardware.Servo;
@@ -13,10 +16,12 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-import static RedStorm.Constants.RobotConstants.ANDYMARK_NEVEREST_40_PULSES;
-import static RedStorm.Constants.RobotConstants.ANDYMARK_NEVEREST_60_PULSES;
-import static RedStorm.Constants.RobotConstants.DRIVE_GEAR_RATIO;
-import static RedStorm.Constants.RobotConstants.DRIVE_WHEEL_CIRCUMFERENCE;
+import static redstorm.Constants.RobotConstants.ANDYMARK_NEVEREST_40_PULSES;
+import static redstorm.Constants.RobotConstants.ANDYMARK_NEVEREST_60_PULSES;
+import static redstorm.Constants.RobotConstants.DRIVE_GEAR_RATIO;
+import static redstorm.Constants.RobotConstants.DRIVE_WHEEL_CIRCUMFERENCE;
+
+import static redstorm.Constants.RobotConstants.COLOR_SENSOR_SCALE_FACTOR;
 
 public class Robot {
 
@@ -25,6 +30,7 @@ public class Robot {
     public DcMotor leftDrive = null;
 
     public BNO055IMU imu = null;
+    public ColorSensor colorSensor = null;
 
 
     public HardwareMap hardwareMap = null;
@@ -56,6 +62,9 @@ public class Robot {
         // in the configuration file on the Robot Controller/Driver Station
         leftDrive = hwMap.get(DcMotor.class, "left_motor");
         rightDrive = hwMap.get(DcMotor.class, "right_motor");
+
+        // Defines and initializes the color sensor
+        colorSensor = hwMap.get(ColorSensor.class, "sensor_color_distance");
 
 
 
@@ -96,6 +105,31 @@ public class Robot {
 
     }
 
+    /**
+     * Gets hue from Color Sensor
+     * @return hue
+     */
+    public float getHue(){
+
+        float hsv[] = {0F, 0F, 0F};
+        convertToHSV(colorSensor.red(), colorSensor.green(), colorSensor.blue(), hsv);
+        return hsv[0];
+    }
+
+    /**
+     * Converts RGB to HSV
+     * @param red component
+     * @param green component
+     * @param blue component
+     * @param hsv returned
+     */
+    public void convertToHSV(int red, int green, int blue, float hsv[]){
+        Color.RGBToHSV((int) (red * COLOR_SENSOR_SCALE_FACTOR),
+                (int) (green * COLOR_SENSOR_SCALE_FACTOR),
+                (int) (blue * COLOR_SENSOR_SCALE_FACTOR),
+                hsv);
+
+    }
 
     /**
      * This method will reset the encoder count of each motor to 0. It should be used before runWithEncoders

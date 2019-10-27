@@ -19,7 +19,6 @@ import RedStorm.Robot.SteeevesRobot;
 @Disabled
 // This line temporarily takes this op mode off of the drop down list until it is
 // commented out.
-@Disabled
 
 // This line establishes the name of the op mode and
 // extends the header file "OpMode" in order to create a teleop op mode.

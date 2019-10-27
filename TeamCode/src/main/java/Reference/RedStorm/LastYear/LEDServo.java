@@ -12,7 +12,6 @@ import com.qualcomm.robotcore.hardware.Servo;
 public class LEDServo extends LinearOpMode {
 
     Servo ledServo;  // Hardware Device Object
-    Blink
 
     public boolean currStateY = false;
     public boolean prevStateY = false;

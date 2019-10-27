@@ -42,7 +42,7 @@ public class stopUnderBridge extends LinearOpMode {
 
             robot.setDriveMotorPower(0.5, 0.5);
 
-            while (opModeIsActive()) {
+            while (opModeIsActive() && ) {
 
 
                 telemetry.addData("distance traveled", "(%.2f)",robot.getLeftDistance());
@@ -54,7 +54,7 @@ public class stopUnderBridge extends LinearOpMode {
 
             }
 
-
+            robot.setDriveMotorPower(0,0);
 
 
 

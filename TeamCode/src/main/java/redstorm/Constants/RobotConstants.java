@@ -22,4 +22,6 @@ public interface RobotConstants {
     int ANDYMARK_NEVEREST_20_PULSES = 560;     // Encoder counts for one revolution for AM Neverest 20
     int ANDYMARK_NEVEREST_40_PULSES = 1120;    // Encoder counts for one revolution for AM Neverest 40
     int ANDYMARK_NEVEREST_60_PULSES = 1680;    // Encoder counts for one revolution for AM Neverest 60
+
+    int COLOR_SENSOR_SCALE_FACTOR = 255; // Scale factor used for color sensor
 }
