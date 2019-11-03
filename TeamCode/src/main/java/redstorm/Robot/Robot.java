@@ -98,7 +98,7 @@ public class Robot {
 
         imu = hwMap.get(BNO055IMU.class, "imu");
         initializeIMU();
-        initializeServosAutonomous();
+
     }
 
 
@@ -239,42 +239,7 @@ public class Robot {
 
         return rightEncoderCount;
     }
-    /**
-     * This method will initialize all of the servos in FacingCrater
-     */
-    public void initializeServosAutonomous() {
 
-
-
-
-    }
-    /**
-     * This method will initialize all of the servos in FacingCrater
-     */
-    public void setTeamMarkerArm(double servoPosition) {
-
-
-
-
-    }
-    /**
-     * This method will initialize all of the servos in FacingCrater
-     */
-    public void setTeamMarkerGrip(double servoPosition) {
-
-
-
-
-
-
-    }
-    public void setLiftServo(double servoPosition) {
-
-
-
-
-
-    }
     public float getHeading() {
 
         float heading;
@@ -297,8 +262,22 @@ public class Robot {
         leftDrive.setPower(leftBackMotorPower);
         rightDrive.setPower(rightBackMotorPower);
     }
-    //
 
+    /**
+     * this method sets the position of the right servo
+     * @param position
+     */
+    public void setServoRight(double position) {
+        servoRight.setPosition(position);
+    }
+
+    /**
+     * this method sets the position of the left servo
+     * @param position
+     */
+    public void setSerovoLeft(double position) {
+        servoLeft.setPosition(position);
+    }
 
 
     public void initializeIMU() {
