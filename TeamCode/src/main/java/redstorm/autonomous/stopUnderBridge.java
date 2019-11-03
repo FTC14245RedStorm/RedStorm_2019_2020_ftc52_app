@@ -38,6 +38,8 @@ public class stopUnderBridge extends LinearOpMode {
             while (opModeIsActive() && robot.getHue() < 100 && robot.getDriveEncoderCount() <= distanceToTravel) {
 
 
+                telemetry.addData("Hue: ", robot.getHue());
+                telemetry.update();
 
             }
 
