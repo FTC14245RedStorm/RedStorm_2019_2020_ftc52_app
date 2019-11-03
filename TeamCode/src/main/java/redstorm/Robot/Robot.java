@@ -70,6 +70,9 @@ public class Robot {
         // Defines and initializes the color sensor
         colorSensor = hwMap.get(ColorSensor.class, "sensor_color_distance");
 
+        // Defines and initializes the servos
+        servoRight = hwMap.get(Servo.class,"right_servo");
+        servoLeft = hwMap.get(Servo.class,"left_servo");
 
 
         // Defines the directions the motors will spin, typically motors that
