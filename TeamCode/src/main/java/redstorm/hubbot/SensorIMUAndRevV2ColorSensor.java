@@ -170,7 +170,7 @@ public class SensorIMUAndRevV2ColorSensor extends LinearOpMode
             telemetry.addLine().addData("Red: ", sensorColor.red()).
                                 addData("Green: ",sensorColor.green()).
                                 addData("Blue: ",sensorColor.blue());
-            telemetry.addLine().addData("Hue: ", robot.);
+            telemetry.addLine().addData("Hue: ", hsvValues[0].);
 
             telemetry.addLine("IMU");
             telemetry.addLine().addData("Status: ",imu.getSystemStatus().toShortString());
