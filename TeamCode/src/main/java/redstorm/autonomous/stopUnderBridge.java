@@ -35,7 +35,7 @@ public class stopUnderBridge extends LinearOpMode {
 
             robot.setDriveMotorPower(0.5, 0.5);
 
-            while (opModeIsActive() && colorValue != "red" || colorValue != "blue" && distanceTraveled <= distanceToTravel) {
+            while (opModeIsActive() && robot.getHue() < 100 && robot.getDriveEncoderCount() <= distanceToTravel) {
 
                 robot.getHue();
 
