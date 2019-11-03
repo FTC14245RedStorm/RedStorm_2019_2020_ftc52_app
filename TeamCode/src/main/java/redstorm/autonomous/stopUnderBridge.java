@@ -29,6 +29,7 @@ public class stopUnderBridge extends LinearOpMode {
         double distanceFromWall;
         double wallDistanceTraveled = 0;
         String remember = new String();
+        boolean foundTape = false;
 
 
         // Wait for the start button to be pushed!
@@ -42,10 +43,8 @@ public class stopUnderBridge extends LinearOpMode {
 
             robot.setDriveMotorPower(0.5, 0.5);
 
-            while (opModeIsActive() && ) {
+            while (opModeIsActive() && foundTape == false) {
 
-
-                telemetry.addData("distance traveled", "(%.2f)",robot.getLeftDistance());
                 telemetry.update();
 
                 robot.setDriveMotorPower(0.5,0.5);
