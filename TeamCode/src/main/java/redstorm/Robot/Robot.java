@@ -32,6 +32,10 @@ public class Robot {
     public BNO055IMU imu = null;
     public ColorSensor colorSensor = null;
 
+    public Servo servoRight = null;
+    public Servo servoLeft = null;
+    public Servo servoArm = null;
+    public Servo servoClaw = null;
 
     public HardwareMap hardwareMap = null;
 
@@ -127,7 +131,7 @@ public class Robot {
         Color.RGBToHSV((int) (red * COLOR_SENSOR_SCALE_FACTOR),
                 (int) (green * COLOR_SENSOR_SCALE_FACTOR),
                 (int) (blue * COLOR_SENSOR_SCALE_FACTOR),
-                hsv);
+        hsv);
 
     }
 
