@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import RedStorm.Robot.Robot;
+import redstorm.Robot.Robot;
 
 @Autonomous(name="Stop Under Bridge", group="distance")
 
@@ -25,11 +25,9 @@ public class stopUnderBridge extends LinearOpMode {
         telemetry.addData("Status:  ", "Initialized");
         telemetry.update();
 
-        double wallDistanceToTravel = 0;
-        double distanceFromWall;
-        double wallDistanceTraveled = 0;
         String remember = new String();
-        boolean foundTape = false;
+        String colorValue = "gray";
+        double distanceToTravel = 0;
 
 
         // Wait for the start button to be pushed!
@@ -39,11 +37,11 @@ public class stopUnderBridge extends LinearOpMode {
             robot.resetEncoders();
             robot.runWithEncoders();
 
-            wallDistanceToTravel = robot.calculateEncoderCounts(72);
+            distanceToTravel = robot.calculateEncoderCounts(24);
 
             robot.setDriveMotorPower(0.5, 0.5);
 
-            while (opModeIsActive() && foundTape == false) {
+            while (opModeIsActive() && colorValue != "red" || colorValue != "blue") {
 
                 telemetry.update();
 
