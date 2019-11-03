@@ -25,17 +25,11 @@ public class stopUnderBridge extends LinearOpMode {
         telemetry.addData("Status:  ", "Initialized");
         telemetry.update();
 
-        String remember = new String();
-        String colorValue = "gray";
         double distanceToTravel = 0;
 
 
         // Wait for the start button to be pushed!
         waitForStart();
-
-
-            robot.resetEncoders();
-            robot.runWithEncoders();
 
             distanceToTravel = robot.calculateEncoderCounts(24);
 
