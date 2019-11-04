@@ -84,8 +84,7 @@ public class ServoPositionTest extends OpMode {
             newPosition = 0.35;
         }
 
-        robot.setSerovoLeft(newPosition);
-        robot.setServoRight(newPosition);
+        robot.setServoPosition(newPosition);
         telemetry.addData("Servo Position",String.valueOf(newPosition));
         telemetry.update();
 
