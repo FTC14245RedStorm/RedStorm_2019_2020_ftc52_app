@@ -93,6 +93,7 @@ public class Robot {
         leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
+        //Set servos to starting positions
         servoLeft.setPosition(.75);
         servoRight.setPosition(.75);
 
