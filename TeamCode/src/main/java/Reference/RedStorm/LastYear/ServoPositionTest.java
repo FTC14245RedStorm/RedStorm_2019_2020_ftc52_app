@@ -55,7 +55,7 @@ public class ServoPositionTest extends OpMode {
     @Override
     public void start() {
 
-        // robot.initializeServosTeleOp();
+        robot.initializeServosTeleOp();
     }
 
     @Override
@@ -84,7 +84,7 @@ public class ServoPositionTest extends OpMode {
             newPosition = 0.35;
         }
 
-        robot.setServoPosition(newPosition);
+        //robot.setServoPosition(newPosition);
         telemetry.addData("Servo Position",String.valueOf(newPosition));
         telemetry.update();
 

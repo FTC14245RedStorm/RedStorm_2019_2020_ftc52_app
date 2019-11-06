@@ -15,12 +15,11 @@ public class stopUnderBridge extends LinearOpMode {
     public Robot robot = new Robot();    // Create a new instance of the robot!
 
 
-    public void runOpMode () {
+    public void runOpMode() {
 
         // Initialize and set up the robot's drive motors
         robot.initialize(hardwareMap);             // Initialize the robot
-        robot.resetEncoders();                     // Reset the encoder counts
-        robot.runWithEncoders();                   // Tell the motors to run with encoders
+
 
         telemetry.addData("Status:  ", "Initialized");
         telemetry.update();
@@ -30,6 +29,9 @@ public class stopUnderBridge extends LinearOpMode {
 
         // Wait for the start button to be pushed!
         waitForStart();
+
+        robot.resetEncoders();                     // Reset the encoder counts
+        robot.runWithEncoders();                   // Tell the motors to run with encoders
 
             distanceToTravel = robot.calculateEncoderCounts(24);
 
