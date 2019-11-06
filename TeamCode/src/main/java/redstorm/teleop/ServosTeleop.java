@@ -9,6 +9,7 @@ import redstorm.Robot.Robot;
 
 public class ServosTeleop extends OpMode{
     public Robot snacktime = new Robot();
+    double newPosition = 0.0;
 
     @Override
     public void init(){
@@ -28,16 +29,16 @@ public class ServosTeleop extends OpMode{
     @Override
     public void loop(){
 
-        double newPosition = 0.0;
+
 
         if (gamepad1.a) {
-            newPosition = 0.0;
+            newPosition = 1.0;
         } else if (gamepad1.b) {
-            newPosition = 0.5;
+            newPosition = 0.25;
         } else if (gamepad1.x) {
-            newPosition = -0.5;
+            newPosition = 0.5;
         }
-        snacktime.setServoRight(newPosition);
+        snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
     }
 

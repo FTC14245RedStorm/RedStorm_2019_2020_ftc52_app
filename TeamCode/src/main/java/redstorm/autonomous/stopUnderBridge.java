@@ -4,7 +4,7 @@ import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
-import redstorm.Robot.StevesRobot;
+import redstorm.Robot.Robot;
 
 @Autonomous(name="Stop Under Bridge", group="distance")
 
@@ -12,7 +12,7 @@ import redstorm.Robot.StevesRobot;
 public class stopUnderBridge extends LinearOpMode {
 
 
-    public StevesRobot robot = new StevesRobot();    // Create a new instance of the robot
+    public Robot robot = new Robot();    // Create a new instance of the robot
 
 
     public void runOpMode() {
