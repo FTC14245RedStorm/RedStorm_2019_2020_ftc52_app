@@ -276,7 +276,7 @@ public class Robot {
      * this method sets the position of the left servo
      * @param position
      */
-    public void setSerovoLeft(double position) {
+    public void setServoLeft(double position) {
         servoLeft.setPosition(position);
     }
 

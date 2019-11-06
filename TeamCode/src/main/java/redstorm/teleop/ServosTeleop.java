@@ -27,14 +27,18 @@ public class ServosTeleop extends OpMode{
 
     @Override
     public void loop(){
-        double left;
-        double right;
 
-        left = gamepad1.a;
-        right = gamepad1.b;
+        double newPosition = 0.0;
 
-        snacktime.servoLeft.setPosition(left);
-        snacktime.servoRight.setPosition(right);
+        if (gamepad1.a) {
+            newPosition = 0.0;
+        } else if (gamepad1.b) {
+            newPosition = 0.5;
+        } else if (gamepad1.x) {
+            newPosition = -0.5;
+        }
+        snacktime.setServoRight(newPosition);
+        snacktime.setServoLeft(newPosition);
     }
 
 }
