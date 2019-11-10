@@ -11,13 +11,13 @@ import redstorm.Robot.Robot;
 public class BuildSide extends LinearOpMode {
 
 
-    public Robot robot = new Robot();    // Create a new instance of the robot
+    public Robot snacktime = new Robot();    // Create a new instance of the robot
 
 
     public void runOpMode() {
 
         // Initialize and set up the robot's drive motors
-        robot.initialize(hardwareMap);             // Initialize the robot
+        snacktime.initialize(hardwareMap);             // Initialize the robot
 
 
         telemetry.addData("Status:  ", "Initialized");
