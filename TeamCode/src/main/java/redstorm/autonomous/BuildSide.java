@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="Stop Under Bridge", group="distance")
+@Autonomous(name="BuildSide")
 
 
 public class BuildSide extends LinearOpMode {
