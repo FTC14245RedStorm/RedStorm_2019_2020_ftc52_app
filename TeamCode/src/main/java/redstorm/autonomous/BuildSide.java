@@ -31,7 +31,9 @@ public class BuildSide extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
-    }
+        distanceToTravel = snacktime.calculateEncoderCounts(96);
+
+        snacktime.setDriveMotorPower(0.5, 0.5); }
 
 
 }
