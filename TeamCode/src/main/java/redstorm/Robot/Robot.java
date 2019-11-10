@@ -95,7 +95,7 @@ public class Robot {
 
         //Set servos to starting positions
         servoLeft.setPosition(0.0);
-        servoRight.setPosition(0.0);
+        servoRight.setPosition(1.0);
 
         imu = hwMap.get(BNO055IMU.class, "imu");
         initializeIMU();

@@ -32,7 +32,7 @@ public class ServosTeleop extends OpMode{
 
 
         if (gamepad1.a) {
-            newPosition = 1.0;
+            newPosition = 0.9;
         } else if (gamepad1.b) {
             newPosition = 0.0;
         } else if (gamepad1.x) {
