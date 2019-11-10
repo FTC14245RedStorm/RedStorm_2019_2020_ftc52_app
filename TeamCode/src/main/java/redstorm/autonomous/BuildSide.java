@@ -33,7 +33,15 @@ public class BuildSide extends LinearOpMode {
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
         distanceToTravel = snacktime.calculateEncoderCounts(50);
 
-        snacktime.setDriveMotorPower(0.5, 0.5); }
+        snacktime.setDriveMotorPower(0.5, 0.5);
+        while (opModeIsActive() && snacktime.getHue() < 150 && snacktime.getDriveEncoderCount() <= distanceToTravel) {
+
+
+            telemetry.addData("Hue: ", snacktime.getHue());
+            telemetry.update();
+
+
+        }
 
          while (opModeIsActive() && snacktime.getHue() < 150 && snacktime.getDriveEncoderCount() <= distanceToTravel) {
 
