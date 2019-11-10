@@ -38,9 +38,10 @@ public class BuildSide extends LinearOpMode {
         snacktime.setDriveMotorPower(0.5, 0.5);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() <= distanceToTravel) {
         }
-// Putting servos down to latch onto foundation
+
         snacktime.setDriveMotorPower(0,0);
 
+        // Putting servos down to latch onto foundation
         newPosition = 0.9;
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
@@ -57,6 +58,11 @@ public class BuildSide extends LinearOpMode {
         newPosition = 0.0;
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
+
+
+        // Need to add code to turn 90 degrees we will talk about this on wednesday
+
+
     }
 
 
