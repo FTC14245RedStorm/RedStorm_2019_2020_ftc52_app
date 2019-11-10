@@ -38,11 +38,10 @@ public class BuildSide extends LinearOpMode {
 
 
 
-            snacktime.setDriveMotorPower(0,0);
 
         }
 
-
+        snacktime.setDriveMotorPower(0,0);
 
     }
 
