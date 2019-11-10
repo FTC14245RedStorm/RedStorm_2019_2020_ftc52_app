@@ -34,21 +34,26 @@ public class BuildSide extends LinearOpMode {
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
         distanceToTravel = snacktime.calculateEncoderCounts(50);
 
+        // Having the robot travel 50 inches
         snacktime.setDriveMotorPower(0.5, 0.5);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() <= distanceToTravel) {
         }
-
+// Putting servos down to latch onto foundation
         snacktime.setDriveMotorPower(0,0);
 
         newPosition = 0.9;
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
+
+        // Pulling the foundation backwards to reach the corner
         snacktime.resetEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(28);
         snacktime.setDriveMotorPower(-0.5, -0.5);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() >= -distanceToTravel) {
         }
         snacktime.setDriveMotorPower(0,0);
+
+        // Let go of the foundation
         newPosition = 0.0;
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
