@@ -32,14 +32,24 @@ public class ServosTeleop extends OpMode{
 
 
         if (gamepad1.a) {
-            newPosition = 1.0;
+            newPosition = 0.9;
         } else if (gamepad1.b) {
-            newPosition = 0.25;
+            newPosition = 0.0;
         } else if (gamepad1.x) {
             newPosition = 0.5;
         }
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
+
+        double left;
+        double right;
+
+        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
+        left = -gamepad1.left_stick_y;
+        right = -gamepad1.right_stick_y;
+
+        snacktime.setDriveMotorPower(left, right);
+
     }
 
 }
