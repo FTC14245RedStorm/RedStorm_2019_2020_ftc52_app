@@ -35,10 +35,10 @@ public class BuildSide extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.5, 0.5); }
 
-         while (opModeIsActive() && robot.getHue() < 150 && robot.getDriveEncoderCount() <= distanceToTravel) {
+         while (opModeIsActive() && snacktime.getHue() < 150 && snacktime.getDriveEncoderCount() <= distanceToTravel) {
 
 
-        telemetry.addData("Hue: ", robot.getHue());
+        telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
     }
