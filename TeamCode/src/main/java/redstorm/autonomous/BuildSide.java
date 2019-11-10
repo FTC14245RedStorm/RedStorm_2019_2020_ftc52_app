@@ -65,6 +65,7 @@ public class BuildSide extends LinearOpMode {
 
         distanceToTravel = snacktime.calculateEncoderCounts(50);
 
+        // find the line and stop
         snacktime.setDriveMotorPower(0.5, 0.5);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
