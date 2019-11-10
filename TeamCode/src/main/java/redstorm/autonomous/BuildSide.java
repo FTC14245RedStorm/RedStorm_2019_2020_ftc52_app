@@ -24,6 +24,7 @@ public class BuildSide extends LinearOpMode {
         telemetry.update();
 
         double distanceToTravel;
+        double newPosition;
 
 
         // Wait for the start button to be pushed!
@@ -42,6 +43,10 @@ public class BuildSide extends LinearOpMode {
         }
 
         snacktime.setDriveMotorPower(0,0);
+
+        newPosition = 0.9;
+        snacktime.setServoRight(1.0-newPosition);
+        snacktime.setServoLeft(newPosition);
 
     }
 
