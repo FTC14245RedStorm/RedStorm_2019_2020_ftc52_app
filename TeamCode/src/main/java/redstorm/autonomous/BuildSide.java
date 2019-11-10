@@ -49,6 +49,9 @@ public class BuildSide extends LinearOpMode {
         while (opModeIsActive() && snacktime.getDriveEncoderCount() >= -distanceToTravel) {
         }
         snacktime.setDriveMotorPower(0,0);
+        newPosition = 0.0;
+        snacktime.setServoRight(1.0-newPosition);
+        snacktime.setServoLeft(newPosition);
     }
 
 
