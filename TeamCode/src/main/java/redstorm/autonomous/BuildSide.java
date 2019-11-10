@@ -61,7 +61,23 @@ public class BuildSide extends LinearOpMode {
 
 
         // Need to add code to turn 90 degrees we will talk about this on wednesday
+        snacktime.resetEncoders();                     // Reset the encoder counts
 
+        distanceToTravel = snacktime.calculateEncoderCounts(50);
+
+        snacktime.setDriveMotorPower(0.5, 0.5);
+        telemetry.addData("Hue: ", snacktime.getHue());
+        telemetry.update();
+
+        while (opModeIsActive() && snacktime.getHue() < 150 && snacktime.getDriveEncoderCount() <= distanceToTravel) {
+
+
+            telemetry.addData("Hue: ", snacktime.getHue());
+            telemetry.update();
+
+        }
+
+        snacktime.setDriveMotorPower(0,0);
 
     }
 
