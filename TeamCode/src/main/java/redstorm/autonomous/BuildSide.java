@@ -29,6 +29,8 @@ public class BuildSide extends LinearOpMode {
         // Wait for the start button to be pushed!
         waitForStart();
 
+        snacktime.resetEncoders();                     // Reset the encoder counts
+        snacktime.runWithEncoders();                   // Tell the motors to run with encoders
     }
 
 
