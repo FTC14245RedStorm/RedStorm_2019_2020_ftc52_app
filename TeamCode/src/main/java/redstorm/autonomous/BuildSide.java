@@ -54,7 +54,10 @@ public class BuildSide extends LinearOpMode {
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
         telemetry.addData("Latching on to", " foundation");
+        telemetry.addData("ServoRight: ", 1.0-newPosition);
+        telemetry.addData("ServoLeft: ", newPosition);
         telemetry.update();
+        Thread.sleep( 500);    // Need some time to let the servos get into position
 
 
 
@@ -62,7 +65,7 @@ public class BuildSide extends LinearOpMode {
         snacktime.resetEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(28);
         snacktime.setDriveMotorPower(-0.5, -0.5);
-        while (opModeIsActive() && snacktime.getDriveEncoderCount() >= -distanceToTravel) {
+        while (opModeIsActive() && snacktime.getDriveEncoderCount() <= distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
             telemetry.update();
@@ -74,13 +77,21 @@ public class BuildSide extends LinearOpMode {
         newPosition = 0.0;
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
+        telemetry.addData("Latching on to", " foundation");
+        telemetry.addData("ServoRight: ", 1.0-newPosition);
+        telemetry.addData("ServoLeft: ", newPosition);
+        telemetry.update();
+        Thread.sleep( 500);    // Need some time to let the servos get into position
+
 
         //turn right 90 degrees
         snacktime.initializeIMU();
+        double startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-0.5, 0.5);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 90.0) {
-            telemetry.addData("heading: ","%5.2f",snacktime.getHeading());
+            telemetry.addData("Starting heading: ","%5.2f",startHeading);
+            telemetry.addData("Current heading: ","%5.2f",snacktime.getHeading());
             telemetry.update();
         }
         snacktime.setDriveMotorPower(0.0, 0.0);
