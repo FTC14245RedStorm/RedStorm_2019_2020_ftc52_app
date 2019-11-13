@@ -73,6 +73,8 @@ public class Robot {
         // Defines and initializes the servos
         servoRight = hwMap.get(Servo.class,"right_servo");
         servoLeft = hwMap.get(Servo.class,"left_servo");
+        servoArm = hwMap.get(Servo.class,"servo_ar m");
+        servoClaw = hwMap.get(Servo.class,"servo_claw");
 
 
         // Defines the directions the motors will spin, typically motors that
@@ -96,6 +98,8 @@ public class Robot {
         //Set servos to starting positions
         servoLeft.setPosition(1.0);
         servoRight.setPosition(0.0);
+        servoArm.setPosition(0.0);
+        servoClaw.setPosition(0.0);
 
         imu = hwMap.get(BNO055IMU.class, "imu");
         initializeIMU();
@@ -279,6 +283,12 @@ public class Robot {
     public void setServoLeft(double position) {
         servoLeft.setPosition(position);
     }
+
+    public void setServoArmUp () { servoArm.setPosition(0.0);}
+    public void setServoArmDown () { servoArm.setPosition(1.0);}
+
+    public void setServoClawOpen () { servoClaw.setPosition(0.0);}
+    public void setServoClawClosed () { servoClaw.setPosition(1.0);}
 
 
     public void initializeIMU() {

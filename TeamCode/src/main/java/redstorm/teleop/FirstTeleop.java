@@ -54,6 +54,10 @@ import redstorm.Robot.Robot;
 public class FirstTeleop extends OpMode{
 
     public Robot snacktime = new Robot();
+    public boolean currStatex = false;
+    public boolean currStatey = false;
+    public boolean currStatea = false;
+    public boolean currStateb = false;
 
     /*
      * Code to run ONCE when the driver hits INIT
@@ -89,11 +93,33 @@ public class FirstTeleop extends OpMode{
         double left;
         double right;
 
+        currStatex = gamepad1.x;
+        currStatey = gamepad1.y;
+        currStatea = gamepad1.a;
+        currStateb = gamepad1.b;
+
+
+
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
 
        snacktime.setDriveMotorPower(left, right);
+
+       if (currStatex) {
+           snacktime.setServoArmDown();
+       }
+       else if (currStatey) {
+           snacktime.setServoArmUp();
+       }
+
+       if (currStatea) {
+           snacktime.setServoClawClosed();
+       }
+       else if (currStateb) {
+           snacktime.setServoClawOpen();
+       }
+
 
     }
 
