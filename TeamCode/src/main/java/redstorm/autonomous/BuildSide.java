@@ -59,7 +59,7 @@ public class BuildSide extends LinearOpMode {
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
 
-
+        snacktime.setDriveMotorPower(-0.5, -0.5);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 10) {
             telemetry.addData("heading: ","%5.2f",snacktime.getHeading());
