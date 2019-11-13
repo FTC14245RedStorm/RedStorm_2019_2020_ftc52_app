@@ -59,8 +59,15 @@ public class BuildSide extends LinearOpMode {
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
 
-
-        // Need to add code to turn 90 degrees we will talk about this on wednesday
+        //turn right 90 degrees
+        snacktime.initializeIMU();
+        snacktime.setDriveMotorPower(-0.5, 0.5);
+        while (opModeIsActive() &&
+                snacktime.getHeading() < 90.0) {
+            telemetry.addData("heading: ","%5.2f",snacktime.getHeading());
+            telemetry.update();
+        }
+        snacktime.setDriveMotorPower(0.0, 0.0);
         snacktime.resetEncoders();                     // Reset the encoder counts
 
         distanceToTravel = snacktime.calculateEncoderCounts(50);
