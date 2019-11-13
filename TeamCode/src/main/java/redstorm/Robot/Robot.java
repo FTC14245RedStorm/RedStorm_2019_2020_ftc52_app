@@ -73,7 +73,7 @@ public class Robot {
         // Defines and initializes the servos
         servoRight = hwMap.get(Servo.class,"right_servo");
         servoLeft = hwMap.get(Servo.class,"left_servo");
-        servoArm = hwMap.get(Servo.class,"servo_ar m");
+        servoArm = hwMap.get(Servo.class,"servo_arm");
         servoClaw = hwMap.get(Servo.class,"servo_claw");
 
 
