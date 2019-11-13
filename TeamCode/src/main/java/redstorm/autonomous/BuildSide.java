@@ -32,25 +32,41 @@ public class BuildSide extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(50);
+        distanceToTravel = snacktime.calculateEncoderCounts(40);
 
         // Having the robot travel 50 inches
         snacktime.setDriveMotorPower(0.5, 0.5);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() <= distanceToTravel) {
+            telemetry.addData("Distance To Travel: ", distanceToTravel);
+            telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
+            telemetry.update();
         }
 
         snacktime.setDriveMotorPower(0,0);
+
+        telemetry.addData("Stopping", " Motors");
+        telemetry.update();
+
+
 
         // Putting servos down to latch onto foundation
         newPosition = 0.9;
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
+        telemetry.addData("Latching on to", " foundation");
+        telemetry.update();
+
+
 
         // Pulling the foundation backwards to reach the corner
         snacktime.resetEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(28);
         snacktime.setDriveMotorPower(-0.5, -0.5);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() >= -distanceToTravel) {
+            telemetry.addData("Distance To Travel: ", distanceToTravel);
+            telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
+            telemetry.update();
+
         }
         snacktime.setDriveMotorPower(0,0);
 
@@ -86,6 +102,7 @@ public class BuildSide extends LinearOpMode {
         }
 
         snacktime.setDriveMotorPower(0,0);
+
 
     }
 

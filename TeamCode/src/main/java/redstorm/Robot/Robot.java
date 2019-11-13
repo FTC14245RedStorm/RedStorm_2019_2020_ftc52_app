@@ -16,7 +16,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.AxesReference;
 import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
-import static redstorm.Constants.RobotConstants.ANDYMARK_NEVEREST_40_PULSES;
+//import static redstorm.Constants.RobotConstants.ANDYMARK_NEVEREST_40_PULSES;
 import static redstorm.Constants.RobotConstants.ANDYMARK_NEVEREST_60_PULSES;
 import static redstorm.Constants.RobotConstants.DRIVE_GEAR_RATIO;
 import static redstorm.Constants.RobotConstants.DRIVE_WHEEL_CIRCUMFERENCE;
