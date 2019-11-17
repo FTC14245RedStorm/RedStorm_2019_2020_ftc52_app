@@ -14,7 +14,7 @@ public class BuildSide extends LinearOpMode {
     public Robot snacktime = new Robot();    // Create a new instance of the robot
 
 
-    public void runOpMode() {
+    public void runOpMode() throws InterruptedException {
 
         // Initialize and set up the robot's drive motors
         snacktime.initialize(hardwareMap);             // Initialize the robot
