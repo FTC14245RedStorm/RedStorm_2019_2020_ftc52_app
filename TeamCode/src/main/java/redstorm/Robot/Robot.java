@@ -99,7 +99,7 @@ public class Robot {
         servoLeft.setPosition(1.0);
         servoRight.setPosition(0.0);
         servoArm.setPosition(0.0);
-        servoClaw.setPosition(0.0);
+        servoClaw.setPosition(1.0);
 
         imu = hwMap.get(BNO055IMU.class, "imu");
         initializeIMU();
