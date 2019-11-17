@@ -42,7 +42,7 @@ import redstorm.Robot.Robot;
  * All device access is managed through the HardwarePushbot class.
  *
  * This particular OpMode executes a basic Tank Drive Teleop for a PushBot
- * It raises and lowers the claw using the Gampad Y and A buttons respectively.
+ * It raises and lowers the claw using the Gamepad Y and A buttons respectively.
  * It also opens and closes the claws slowly using the left and right Bumper buttons.
  *
  * Use Android Studios to Copy this Class, and Paste it into your team's code folder with a new name.
@@ -108,16 +108,24 @@ public class FirstTeleop extends OpMode{
 
        if (currStatex) {
            snacktime.setServoArmDown();
+
+           telemetry.addData("X Button:", "Pressed");
        }
        else if (currStatey) {
            snacktime.setServoArmUp();
+
+           telemetry.addData("Y Button:", "Pressed");
        }
 
        if (currStatea) {
            snacktime.setServoClawClosed();
+
+           telemetry.addData("A Button:", "Pressed");
        }
        else if (currStateb) {
            snacktime.setServoClawOpen();
+
+           telemetry.addData("B Button:", "Pressed");
        }
 
 
