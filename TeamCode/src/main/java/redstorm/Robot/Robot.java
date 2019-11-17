@@ -96,8 +96,8 @@ public class Robot {
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //Set servos to starting positions
-        servoLeft.setPosition(1.0);
-        servoRight.setPosition(0.0);
+        servoLeft.setPosition(0.0);
+        servoRight.setPosition(1.0);
         servoArm.setPosition(0.0);
         servoClaw.setPosition(0.0);
 
