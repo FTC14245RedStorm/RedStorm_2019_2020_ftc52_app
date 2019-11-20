@@ -64,7 +64,7 @@ public class BuildSide extends LinearOpMode {
         // Pulling the foundation backwards to reach the corner
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(28.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(33.0);
         snacktime.setDriveMotorPower(-0.5, -0.5);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -73,7 +73,6 @@ public class BuildSide extends LinearOpMode {
 
         }
         snacktime.setDriveMotorPower(0,0);
-
         // Let go of the foundation
         newPosition = 0.0;
         snacktime.setServoRight(1.0-newPosition);
@@ -88,15 +87,16 @@ public class BuildSide extends LinearOpMode {
         //turn right 90 degrees
         snacktime.initializeIMU();
         double startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.5, 0.5);
+        snacktime.setDriveMotorPower(0.5, -0.5);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 90.0) {
+                Math.abs(snacktime.getHeading()) < 90.0) {
             telemetry.addData("Starting heading: ","%5.2f",startHeading);
             telemetry.addData("Current heading: ","%5.2f",snacktime.getHeading());
             telemetry.update();
         }
         snacktime.setDriveMotorPower(0.0, 0.0);
         snacktime.resetEncoders();                     // Reset the encoder counts
+        snacktime.runWithEncoders();                   // Tell the motors to run with encoders
 
         distanceToTravel = snacktime.calculateEncoderCounts(50.0);
 
