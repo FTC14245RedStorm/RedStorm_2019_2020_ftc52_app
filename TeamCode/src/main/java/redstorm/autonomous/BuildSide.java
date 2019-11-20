@@ -64,7 +64,7 @@ public class BuildSide extends LinearOpMode {
         // Pulling the foundation backwards to reach the corner
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(40.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(50.0);
         snacktime.setDriveMotorPower(-1.00, -1.00);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -74,6 +74,17 @@ public class BuildSide extends LinearOpMode {
         }
         snacktime.setDriveMotorPower(0,0);
         // Let go of the foundation
+
+        snacktime.resetEncoders();
+        snacktime.runWithEncoders();
+        distanceToTravel = snacktime.calculateEncoderCounts(5.0);
+        snacktime.setDriveMotorPower(-1.00, -1.00);
+        while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
+            telemetry.addData("Distance To Travel: ", distanceToTravel);
+            telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
+            telemetry.update();
+        // Backing up a small amount to clear turn
+
         newPosition = 0.0;
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
