@@ -75,16 +75,6 @@ public class BuildSide extends LinearOpMode {
         snacktime.setDriveMotorPower(0,0);
         // Let go of the foundation
 
-        snacktime.resetEncoders();
-        snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(5.0);
-        snacktime.setDriveMotorPower(-1.00, -1.00);
-        while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
-            telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
-            telemetry.update();
-        // Backing up a small amount to clear turn
-
         newPosition = 0.0;
         snacktime.setServoRight(1.0-newPosition);
         snacktime.setServoLeft(newPosition);
@@ -94,6 +84,15 @@ public class BuildSide extends LinearOpMode {
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
+        snacktime.resetEncoders();
+        snacktime.runWithEncoders();
+        distanceToTravel = snacktime.calculateEncoderCounts(5.0);
+        snacktime.setDriveMotorPower(-1.00, -1.00);
+        while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
+            telemetry.addData("Distance To Travel: ", distanceToTravel);
+            telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
+            telemetry.update();}
+        // Backing up a small amount to clear turn
 
         //turn right 90 degrees
         snacktime.initializeIMU();
