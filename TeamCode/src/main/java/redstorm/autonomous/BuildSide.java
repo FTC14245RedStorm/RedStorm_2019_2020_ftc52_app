@@ -64,7 +64,7 @@ public class BuildSide extends LinearOpMode {
         // Pulling the foundation backwards to reach the corner
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(50.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(25.0);
         snacktime.setDriveMotorPower(-1.00, -1.00);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -72,6 +72,20 @@ public class BuildSide extends LinearOpMode {
             telemetry.update();
 
         }
+
+        //turn left 75 degrees
+        snacktime.initializeIMU();
+        double startHeading = snacktime.getHeading();
+        snacktime.setDriveMotorPower(-0.5, 0.5);
+        while (opModeIsActive() &&
+                snacktime.getHeading() < 75.0) {
+            telemetry.addData("Starting heading: ","%5.2f",startHeading);
+            telemetry.addData("Current heading: ","%5.2f",snacktime.getHeading());
+            telemetry.update();
+        }
+
+
+
         snacktime.setDriveMotorPower(0,0);
         // Let go of the foundation
 
@@ -84,26 +98,9 @@ public class BuildSide extends LinearOpMode {
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
-        snacktime.resetEncoders();
-        snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(5.0);
-        snacktime.setDriveMotorPower(-1.00, -1.00);
-        while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
-            telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
-            telemetry.update();}
-        // Backing up a small amount to clear turn
 
-        //turn right 90 degrees
-        snacktime.initializeIMU();
-        double startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.5, -0.5);
-        while (opModeIsActive() &&
-                Math.abs(snacktime.getHeading()) < 75.0) {
-            telemetry.addData("Starting heading: ","%5.2f",startHeading);
-            telemetry.addData("Current heading: ","%5.2f",snacktime.getHeading());
-            telemetry.update();
-        }
+
+
         snacktime.setDriveMotorPower(0.0, 0.0);
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
