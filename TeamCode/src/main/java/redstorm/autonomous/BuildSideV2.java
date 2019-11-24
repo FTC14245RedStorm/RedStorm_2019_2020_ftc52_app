@@ -104,6 +104,8 @@ public class BuildSideV2 extends LinearOpMode {
 
         }
 
+        snacktime.setDriveMotorPower(0.0, 0.0);
+
         //turn right 75 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
@@ -115,6 +117,8 @@ public class BuildSideV2 extends LinearOpMode {
             telemetry.update();
 
         }
+
+        snacktime.setDriveMotorPower(0.0, 0.0);
 
             // Go fowards 15 inches
             snacktime.resetEncoders();
@@ -128,6 +132,8 @@ public class BuildSideV2 extends LinearOpMode {
 
             }
 
+        snacktime.setDriveMotorPower(0.0, 0.0);
+
             //turn left 75 degrees
             snacktime.initializeIMU();
             startHeading = snacktime.getHeading();
@@ -138,6 +144,8 @@ public class BuildSideV2 extends LinearOpMode {
                 telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
                 telemetry.update();
             }
+
+        snacktime.setDriveMotorPower(0.0, 0.0);
 
         // Go fowards 48 inches
         snacktime.resetEncoders();
@@ -151,6 +159,8 @@ public class BuildSideV2 extends LinearOpMode {
 
         }
 
+        snacktime.setDriveMotorPower(0.0, 0.0);
+
         //turn left 75 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
@@ -161,6 +171,8 @@ public class BuildSideV2 extends LinearOpMode {
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
         }
+
+        snacktime.setDriveMotorPower(0.0, 0.0);
 
         // Go fowards 24 inches
         snacktime.resetEncoders();
@@ -174,6 +186,8 @@ public class BuildSideV2 extends LinearOpMode {
 
         }
 
+        snacktime.setDriveMotorPower(0.0, 0.0);
+
         //turn left 75 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
@@ -184,6 +198,8 @@ public class BuildSideV2 extends LinearOpMode {
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
         }
+
+        snacktime.setDriveMotorPower(0.0, 0.0);
 
         // Go fowards 48 inches
         snacktime.resetEncoders();
@@ -196,6 +212,8 @@ public class BuildSideV2 extends LinearOpMode {
             telemetry.update();
         }
 
+        snacktime.setDriveMotorPower(0.0, 0.0);
+
         // Go backwards 5 inches
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
@@ -207,6 +225,8 @@ public class BuildSideV2 extends LinearOpMode {
             telemetry.update();
         }
 
+        snacktime.setDriveMotorPower(0.0, 0.0);
+
         //turn left 75 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
@@ -217,6 +237,8 @@ public class BuildSideV2 extends LinearOpMode {
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
         }
+
+        snacktime.setDriveMotorPower(0.0, 0.0);
 
         // find the line and stop
         snacktime.setDriveMotorPower(0.5, 0.5);
