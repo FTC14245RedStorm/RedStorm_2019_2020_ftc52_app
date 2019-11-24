@@ -25,6 +25,7 @@ public class BuildSideV2 extends LinearOpMode {
 
         double distanceToTravel;
         double newPosition;
+        double startHeading;
 
 
         // Wait for the start button to be pushed!
@@ -105,7 +106,7 @@ public class BuildSideV2 extends LinearOpMode {
 
         //turn right 75 degrees
         snacktime.initializeIMU();
-        double startHeading = snacktime.getHeading();
+        startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(1.0, -1.0);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 75.0) {
@@ -129,7 +130,7 @@ public class BuildSideV2 extends LinearOpMode {
 
             //turn left 75 degrees
             snacktime.initializeIMU();
-            double startHeading = snacktime.getHeading();
+            startHeading = snacktime.getHeading();
             snacktime.setDriveMotorPower(-1.0, 1.0);
             while (opModeIsActive() &&
                     snacktime.getHeading() < 75.0) {
@@ -152,7 +153,7 @@ public class BuildSideV2 extends LinearOpMode {
 
         //turn left 75 degrees
         snacktime.initializeIMU();
-        double startHeading = snacktime.getHeading();
+        startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-1.0, 1.0);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 75.0) {
@@ -175,7 +176,7 @@ public class BuildSideV2 extends LinearOpMode {
 
         //turn left 75 degrees
         snacktime.initializeIMU();
-        double startHeading = snacktime.getHeading();
+        startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-1.0, 1.0);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 75.0) {
@@ -208,7 +209,7 @@ public class BuildSideV2 extends LinearOpMode {
 
         //turn left 75 degrees
         snacktime.initializeIMU();
-        double startHeading = snacktime.getHeading();
+        startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-1.0, 1.0);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 75.0) {
