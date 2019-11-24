@@ -201,10 +201,10 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        // Go fowards 48 inches
+        // Go fowards 45 inches
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(48.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(45.0);
         snacktime.setDriveMotorPower(1.00, 1.00);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -227,12 +227,12 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        //turn left 60 degrees
+        //turn left 45 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-0.50, 0.50);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 60.0) {
+                snacktime.getHeading() < 45.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
