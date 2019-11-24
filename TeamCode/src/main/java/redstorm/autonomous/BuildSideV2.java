@@ -35,7 +35,7 @@ public class BuildSideV2 extends LinearOpMode {
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
         distanceToTravel = snacktime.calculateEncoderCounts(32.0);
 
-        // Having the robot travel 50 inches
+        // Having the robot travel 32 inches
         snacktime.setDriveMotorPower(0.75, 0.75);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() <= distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -241,6 +241,10 @@ public class BuildSideV2 extends LinearOpMode {
         snacktime.setDriveMotorPower(0.0, 0.0);
 
         // find the line and stop
+
+        snacktime.resetEncoders();
+        snacktime.runWithEncoders();
+        distanceToTravel = snacktime.calculateEncoderCounts(20.0);
         snacktime.setDriveMotorPower(0.5, 0.5);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
