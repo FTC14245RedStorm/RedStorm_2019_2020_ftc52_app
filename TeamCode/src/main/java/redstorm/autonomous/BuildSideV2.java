@@ -62,10 +62,10 @@ public class BuildSideV2 extends LinearOpMode {
 
 
 
-        // Pulling the foundation backwards to reach the corner
+        // Pulling the foundation backwards 20 in.
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(15.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(20.0);
         snacktime.setDriveMotorPower(-1.00, -1.00);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -109,7 +109,7 @@ public class BuildSideV2 extends LinearOpMode {
         //turn right 60 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(1.0, -1.0);
+        snacktime.setDriveMotorPower(0.50, -0.50);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 60.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -137,7 +137,7 @@ public class BuildSideV2 extends LinearOpMode {
             //turn left 60 degrees
             snacktime.initializeIMU();
             startHeading = snacktime.getHeading();
-            snacktime.setDriveMotorPower(-1.0, 1.0);
+            snacktime.setDriveMotorPower(-0.50, 0.50);
             while (opModeIsActive() &&
                     snacktime.getHeading() < 60.0) {
                 telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -147,10 +147,10 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        // Go fowards 48 inches
+        // Go fowards 43 inches
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(48.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(43.0);
         snacktime.setDriveMotorPower(1.00, 1.00);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -164,7 +164,7 @@ public class BuildSideV2 extends LinearOpMode {
         //turn left 60 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-1.0, 1.0);
+        snacktime.setDriveMotorPower(-0.50, 0.50);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 60.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -191,7 +191,7 @@ public class BuildSideV2 extends LinearOpMode {
         //turn left 60 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-1.0, 1.0);
+        snacktime.setDriveMotorPower(-0.50, 0.50);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 60.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -230,7 +230,7 @@ public class BuildSideV2 extends LinearOpMode {
         //turn left 60 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-1.0, 1.0);
+        snacktime.setDriveMotorPower(-0.50, 0.50);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 60.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
