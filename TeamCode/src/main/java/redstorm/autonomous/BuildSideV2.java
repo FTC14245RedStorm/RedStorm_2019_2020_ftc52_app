@@ -245,7 +245,7 @@ public class BuildSideV2 extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(20.0);
-        snacktime.setDriveMotorPower(0.5, 0.5);
+        snacktime.setDriveMotorPower(1.00, 1.00);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
