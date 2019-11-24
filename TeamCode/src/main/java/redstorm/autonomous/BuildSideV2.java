@@ -106,12 +106,12 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        //turn right 75 degrees
+        //turn right 60 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(1.0, -1.0);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 75.0) {
+                snacktime.getHeading() < 60.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -134,12 +134,12 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-            //turn left 75 degrees
+            //turn left 60 degrees
             snacktime.initializeIMU();
             startHeading = snacktime.getHeading();
             snacktime.setDriveMotorPower(-1.0, 1.0);
             while (opModeIsActive() &&
-                    snacktime.getHeading() < 75.0) {
+                    snacktime.getHeading() < 60.0) {
                 telemetry.addData("Starting heading: ", "%5.2f", startHeading);
                 telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
                 telemetry.update();
@@ -161,12 +161,12 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        //turn left 75 degrees
+        //turn left 60 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-1.0, 1.0);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 75.0) {
+                snacktime.getHeading() < 60.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -188,12 +188,12 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        //turn left 75 degrees
+        //turn left 60 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-1.0, 1.0);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 75.0) {
+                snacktime.getHeading() < 60.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -227,12 +227,12 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        //turn left 75 degrees
+        //turn left 60 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-1.0, 1.0);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 75.0) {
+                snacktime.getHeading() < 60.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
