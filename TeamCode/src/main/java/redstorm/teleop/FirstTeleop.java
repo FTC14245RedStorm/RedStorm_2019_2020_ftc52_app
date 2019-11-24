@@ -99,6 +99,7 @@ public class FirstTeleop extends OpMode{
         currStateb = gamepad1.b;
 
 
+        snacktime.servoArm.setPosition(0.02);
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;

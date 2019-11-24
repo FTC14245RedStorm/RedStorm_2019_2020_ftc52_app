@@ -77,7 +77,7 @@ public class SteeevesServoTesting extends LinearOpMode {
         // Wait for the start button
         telemetry.addData(">", "Press Start to scan Servo." );
         telemetry.update();
-        waitForStart();
+        waitForStart() ;
 
 
         // Scan servo till stop pressed.

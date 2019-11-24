@@ -98,7 +98,7 @@ public class Robot {
         //Set servos to starting positions
         servoLeft.setPosition(0.0);
         servoRight.setPosition(1.0);
-        servoArm.setPosition(1.0);
+        servoArm.setPosition(0.035);
         servoClaw.setPosition(1.0);
 
 
