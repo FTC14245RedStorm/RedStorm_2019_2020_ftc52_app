@@ -63,7 +63,6 @@ public class MoreOfSteeevesServoTesting extends LinearOpMode {
     int count = 0;
     int sleeptime = 5000;
 
-
     @Override
     public void runOpMode() {
 
