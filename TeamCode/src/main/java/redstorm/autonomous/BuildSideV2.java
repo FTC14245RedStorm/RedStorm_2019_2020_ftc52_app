@@ -35,8 +35,8 @@ public class BuildSideV2 extends LinearOpMode {
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
         distanceToTravel = snacktime.calculateEncoderCounts(32.0);
 
-        // Having the robot travel 50 inches
-        snacktime.setDriveMotorPower(0.75, 0.75);
+        // Having the robot travel 32 inches
+        snacktime.setDriveMotorPower(1.00, 1.00);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() <= distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
@@ -92,10 +92,10 @@ public class BuildSideV2 extends LinearOpMode {
 
         distanceToTravel = snacktime.calculateEncoderCounts(50.0);
 
-        // Go backwards five inches
+        // Go backwards three/ inches
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(5.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(3.0);
         snacktime.setDriveMotorPower(-1.00, -1.00);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -134,12 +134,12 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-            //turn left 65 degrees
+            //turn left 70 degrees
             snacktime.initializeIMU();
             startHeading = snacktime.getHeading();
             snacktime.setDriveMotorPower(-0.50, 0.50);
             while (opModeIsActive() &&
-                    snacktime.getHeading() < 65.0) {
+                    snacktime.getHeading() < 70.0) {
                 telemetry.addData("Starting heading: ", "%5.2f", startHeading);
                 telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
                 telemetry.update();
@@ -241,7 +241,11 @@ public class BuildSideV2 extends LinearOpMode {
         snacktime.setDriveMotorPower(0.0, 0.0);
 
         // find the line and stop
-        snacktime.setDriveMotorPower(0.5, 0.5);
+
+        snacktime.resetEncoders();
+        snacktime.runWithEncoders();
+        distanceToTravel = snacktime.calculateEncoderCounts(20.0);
+        snacktime.setDriveMotorPower(1.00, 1.00);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
