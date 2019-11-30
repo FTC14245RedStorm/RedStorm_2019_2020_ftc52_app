@@ -108,19 +108,6 @@ public class Robot {
 
     }
 
-
-
-    /**
-     * This method will set the power for the lift motor
-     * @param liftMotorMotorPower power setting for the lift motor
-     */
-    public void setLiftMotorPower(double liftMotorMotorPower){
-
-        /* Set the Lift power */
-
-
-    }
-
     /**
      * Gets hue from Color Sensor
      * @return hue
@@ -211,10 +198,7 @@ public class Robot {
 
         return averageEncoderCount;
 
-
-
     }
-
 
     /**
      * This method will return the average encoder count from the left and right drive motors
@@ -225,28 +209,20 @@ public class Robot {
 
         leftEncoderCount = Math.abs(leftDrive.getCurrentPosition());      // Get the current encoder count for the left motor
 
-
-
-
         return leftEncoderCount;
     }
+
     /**
      * This method will return the average encoder count from the left and right drive motors
      * @return averageEncoderCount - the average encoder count from the left and right drive motors
      */
     public double getRightDriveEncoderCounts() {
         double rightEncoderCount;
-
-
-
         rightEncoderCount = Math.abs(rightDrive.getCurrentPosition());    // Get the current encoder count for the right motor
-
-
         return rightEncoderCount;
     }
 
     public float getHeading() {
-
         float heading;
 
         angles = imu.getAngularOrientation(AxesReference.INTRINSIC, AxesOrder.ZYX, AngleUnit.DEGREES);
@@ -272,7 +248,7 @@ public class Robot {
      * this method sets the position of the right servo
      * @param position
      */
-    public void setServoRight(double position) {
+    public void setFoundationServoRight(double position) {
         servoRight.setPosition(position);
     }
 
@@ -280,8 +256,18 @@ public class Robot {
      * this method sets the position of the left servo
      * @param position
      */
-    public void setServoLeft(double position) {
+    public void setFoundationServoLeft(double position) {
         servoLeft.setPosition(position);
+    }
+
+    public void setFoundationServosDown() {
+        setFoundationServoLeft(0.0);
+        setFoundationServoRight(0.0);
+    }
+
+    public void setFoundationServosUp() {
+        setFoundationServoLeft(1.0);
+        setFoundationServoRight(1.0);
     }
 
     public void setServoArmUp () { servoArm.setPosition(0.3);}

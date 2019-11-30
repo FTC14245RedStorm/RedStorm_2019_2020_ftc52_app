@@ -52,45 +52,37 @@ public class  SnacktimeTeleop extends OpMode{
           */
         double left  = -gamepad1.left_stick_y;
         double right = -gamepad1.right_stick_y;
-        double lift  = -gamepad2.right_stick_y;
-        boolean gripperOpen = gamepad2.a;
-        boolean gripperClose = gamepad2.b;
+
+        boolean clawOpen = gamepad2.a;
+        boolean clawClose = gamepad2.b;
         boolean armUp = gamepad2.x;
         boolean armDown = gamepad2.y;
- // setting variables for all of the functions I want to be able to do
 
+        boolean foundationDown = gamepad2.left_bumper;
+        boolean foundationUp = gamepad2.right_bumper;
 
-        if (gripperOpen == true) {
-            robot.setTeamMarkerGrip(.5);
+        if (clawOpen == true) {
+            robot.setServoClawOpen();
         }
-        if (gripperClose == true) {
-            robot.setTeamMarkerGrip(0);
+        if (clawClose == true) {
+            robot.setServoClawClosed();
         }
 // one button opens the gripper, and one closes it
 
         if (armUp == true) {
-            robot.setTeamMarkerArm(-.5);
+            robot.setServoArmUp();
         }
         if (armDown == true) {
-            robot.setTeamMarkerArm(.1);
-        }
-//you can raise and lower the arm
-
-        boolean liftDown = gamepad2.dpad_down;
-        boolean liftUp = gamepad2.dpad_up;
-
-        if (liftDown == true) {
-            robot.setLiftServo(.4);
+            robot.setServoArmDown();
         }
 
-        if (liftUp == true) {
-            robot.setLiftServo(.6);
+        if (foundationDown == true) {
+            robot.setFoundationServosDown();
         }
-//allows us to push the hook in and out of the gear
 
-
-
-
+        if (foundationUp == true) {
+            robot.setFoundationServosUp();
+        }
 
         /* Insure that the values from the gamepad for left and right will
            always be between -1.0 and 1.0.  This is done since motor powers
@@ -98,7 +90,6 @@ public class  SnacktimeTeleop extends OpMode{
          */
         left = Range.clip(left, -1, 1);
         right = Range.clip(right, -1, 1);
-        lift = Range.clip(lift,  -1, 1);
 
         /* Smooth the right and left powers.  Smoothing will give the driver better control.
            See the smoothPower method for more information.
@@ -111,7 +102,6 @@ public class  SnacktimeTeleop extends OpMode{
          */
         robot.setDriveMotorPower(left, right);
 
-        robot.setLiftMotorPower(lift);
   // setting lift power for the robot
 
     }
