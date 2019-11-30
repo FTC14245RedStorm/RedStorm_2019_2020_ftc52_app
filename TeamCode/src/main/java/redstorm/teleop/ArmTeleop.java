@@ -10,10 +10,12 @@ import com.qualcomm.robotcore.hardware.Servo;
 
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
+import redstorm.Robot.Robot;
+
 @TeleOp(name="Arm TeleOp", group="TeleOp")
 
 public class ArmTeleop extends OpMode{
-
+public Robot snacktime = new Robot()
     public void init() {
 
 
@@ -68,6 +70,27 @@ public class ArmTeleop extends OpMode{
 
 
         imu = hwMap.get(BNO055IMU.class, "imu");
+
+        if (gamepad1.a) {
+            newPosition = 0.9;
+        }  else if (gamepad1.x) {
+            newPosition = 0.0;
+        }
+        snacktime.setServoRight(1.0-newPosition);
+        snacktime.setServoLeft(newPosition);
+
+        double left;
+        double right;
+
+        // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
+        left = -gamepad1.left_stick_y;
+        right = -gamepad1.right_stick_y;
+
+        snacktime.setDriveMotorPower(left, right);
+
     }
 
 }
+
+
+
