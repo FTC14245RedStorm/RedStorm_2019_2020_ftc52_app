@@ -1,6 +1,7 @@
 package redstorm.teleop;
 
 import com.qualcomm.hardware.bosch.BNO055IMU;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.hardware.ColorSensor;
@@ -13,6 +14,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 import redstorm.Robot.Robot;
 
 @TeleOp(name="Arm TeleOp", group="TeleOp")
+@Disabled
 
 public class ArmTeleop extends OpMode{
 public Robot snacktime = new Robot()

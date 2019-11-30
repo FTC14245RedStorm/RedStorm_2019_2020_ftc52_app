@@ -17,6 +17,7 @@ import org.firstinspires.ftc.robotcore.external.navigation.DistanceUnit;
 import org.firstinspires.ftc.robotcore.external.navigation.Orientation;
 
 //import static redstorm.Constants.RobotConstants.ANDYMARK_NEVEREST_40_PULSES;
+import static redstorm.Constants.RobotConstants.ANDYMARK_NEVEREST_40_PULSES;
 import static redstorm.Constants.RobotConstants.ANDYMARK_NEVEREST_60_PULSES;
 import static redstorm.Constants.RobotConstants.DRIVE_GEAR_RATIO;
 import static redstorm.Constants.RobotConstants.DRIVE_WHEEL_CIRCUMFERENCE;
@@ -189,7 +190,7 @@ public class Robot {
         rotations = (distance / DRIVE_WHEEL_CIRCUMFERENCE) * DRIVE_GEAR_RATIO;
 
         // Calculate the number of encoder counts for the given distance
-        encoderCounts = ANDYMARK_NEVEREST_60_PULSES * rotations; //calculate encoder counts for given distance
+        encoderCounts = ANDYMARK_NEVEREST_40_PULSES * rotations; //calculate encoder counts for given distance
 
         return encoderCounts;
     }
