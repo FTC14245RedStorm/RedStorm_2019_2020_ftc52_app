@@ -6,7 +6,7 @@ import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import com.qualcomm.robotcore.util.Range;
 
-import RedStorm.Robot.Robot;
+import redstorm.Robot.Robot;
 
 
 // This line establishes this op mode as a teleop op mode and allows for it to be displayed
@@ -22,7 +22,7 @@ import RedStorm.Robot.Robot;
 // This line establishes the name of the op mode and
 // extends the header file "OpMode" in order to create a teleop op mode.  just for fun
 
-public class  CalebTeleop extends OpMode{
+public class  SnacktimeTeleop extends OpMode{
     // Create an instance of Robot and store it into robot
     public Robot robot = new Robot();
     /**
