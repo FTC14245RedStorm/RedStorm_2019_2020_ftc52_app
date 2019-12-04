@@ -32,10 +32,10 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(28.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(10.0);
 
-        // Having the robot travel 28 inches
-        snacktime.setDriveMotorPower(0.60, 0.75);
+        // Having the robot travel 10 inches
+        snacktime.setDriveMotorPower(0.75, 0.75);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() <= distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
@@ -48,6 +48,26 @@ public class BuildSideV2 extends LinearOpMode {
         telemetry.update();
 
 
+        //turn right 10 degrees
+        snacktime.initializeIMU();
+        startHeading = snacktime.getHeading();
+        snacktime.setDriveMotorPower(0.30, -0.30);
+        while (opModeIsActive() &&
+                snacktime.getHeading() < 10.0) {
+            telemetry.addData("Starting heading: ", "%5.2f", startHeading);
+            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
+            telemetry.update();
+
+            snacktime.resetEncoders();                     // Reset the encoder counts
+            snacktime.runWithEncoders();                   // Tell the motors to run with encoders
+            distanceToTravel = snacktime.calculateEncoderCounts(20.0);
+
+            // Having the robot travel 20 inches
+            snacktime.setDriveMotorPower(0.75, 0.75);
+            while (opModeIsActive() && snacktime.getDriveEncoderCount() <= distanceToTravel) {
+                telemetry.addData("Distance To Travel: ", distanceToTravel);
+                telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
+                telemetry.update();
 
         // Putting servos down to latch onto foundation
         snacktime.setFoundationServosDown();
