@@ -97,10 +97,9 @@ public class Robot {
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //Set servos to starting positions
-        servoLeft.setPosition(1.0);
-        servoRight.setPosition(0.0);
-        servoArm.setPosition(0.035);
-        servoClaw.setPosition(1.0);
+        setFoundationServosUp();
+        setServoArmUp();
+        setServoClawClosed();
 
 
         imu = hwMap.get(BNO055IMU.class, "imu");
