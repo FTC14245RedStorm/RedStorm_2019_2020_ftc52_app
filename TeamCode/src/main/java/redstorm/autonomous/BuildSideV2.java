@@ -57,10 +57,10 @@ public class BuildSideV2 extends LinearOpMode {
 
 
 
-        // Pulling the foundation backwards 32 in.
+        // Pulling the foundation backwards 28 in.
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(32.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(28.0);
         snacktime.setDriveMotorPower(-0.75, -0.75);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -233,7 +233,7 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(20.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(40.0);
         snacktime.setDriveMotorPower(1.00, 1.00);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
