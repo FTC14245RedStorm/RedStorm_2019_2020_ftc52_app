@@ -35,7 +35,7 @@ public class BuildSideV2 extends LinearOpMode {
         distanceToTravel = snacktime.calculateEncoderCounts(28.0);
 
         // Having the robot travel 28 inches
-        snacktime.setDriveMotorPower(0.75, 0.75);
+        snacktime.setDriveMotorPower(0.70, 0.75);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() <= distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
@@ -57,10 +57,10 @@ public class BuildSideV2 extends LinearOpMode {
 
 
 
-        // Pulling the foundation backwards 28 in.
+        // Pulling the foundation backwards 26 in.
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(28.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(26.0);
         snacktime.setDriveMotorPower(-0.75, -0.75);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -95,12 +95,12 @@ public class BuildSideV2 extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        //turn right 60 degrees
+        //turn right 50 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(0.30, -0.30);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 60.0) {
+                snacktime.getHeading() < 50.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
