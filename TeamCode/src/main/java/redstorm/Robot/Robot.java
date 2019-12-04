@@ -97,8 +97,8 @@ public class Robot {
         rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //Set servos to starting positions
-        servoLeft.setPosition(0.0);
-        servoRight.setPosition(1.0);
+        servoLeft.setPosition(1.0);
+        servoRight.setPosition(0.0);
         servoArm.setPosition(0.035);
         servoClaw.setPosition(1.0);
 
@@ -262,16 +262,16 @@ public class Robot {
 
     public void setFoundationServosDown() {
         setFoundationServoLeft(0.0);
-        setFoundationServoRight(0.0);
+        setFoundationServoRight(1.0);
     }
 
     public void setFoundationServosUp() {
         setFoundationServoLeft(1.0);
-        setFoundationServoRight(1.0);
+        setFoundationServoRight(0.0);
     }
 
-    public void setServoArmUp () { servoArm.setPosition(0.3);}
-    public void setServoArmDown () { servoArm.setPosition(0.7);}
+    public void setServoArmUp () { servoArm.setPosition(0.0);}
+    public void setServoArmDown () { servoArm.setPosition(0.5);}
 
     public void setServoClawOpen () { servoClaw.setPosition(0.0);}
     public void setServoClawClosed () { servoClaw.setPosition(1.0);}

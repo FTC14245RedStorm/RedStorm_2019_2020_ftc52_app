@@ -12,9 +12,6 @@ import redstorm.Robot.Robot;
 // This line establishes this op mode as a teleop op mode and allows for it to be displayed
 // in the drop down list on the Driver Station phone to be chosen to run.
 @TeleOp
-@Disabled
-
-
 
 // This line temporarily takes this op mode off of the drop down list until it is
 // commented out.

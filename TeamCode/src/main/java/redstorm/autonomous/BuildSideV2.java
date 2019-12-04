@@ -52,8 +52,8 @@ public class BuildSideV2 extends LinearOpMode {
 
         // Putting servos down to latch onto foundation
         newPosition = 0.9;
-        snacktime.setServoRight(1.0-newPosition);
-        snacktime.setServoLeft(newPosition);
+        snacktime.setFoundationServoRight(1.0-newPosition);
+        snacktime.setFoundationServoLeft(newPosition);
         telemetry.addData("Latching on to", " foundation");
         telemetry.addData("ServoRight: ", 1.0-newPosition);
         telemetry.addData("ServoLeft: ", newPosition);
@@ -78,8 +78,8 @@ public class BuildSideV2 extends LinearOpMode {
         // Let go of the foundation
 
         newPosition = 0.0;
-        snacktime.setServoRight(1.0-newPosition);
-        snacktime.setServoLeft(newPosition);
+        snacktime.setFoundationServoRight(1.0-newPosition);
+        snacktime.setFoundationServoLeft(newPosition);
         telemetry.addData("Latching on to", " foundation");
         telemetry.addData("ServoRight: ", 1.0-newPosition);
         telemetry.addData("ServoLeft: ", newPosition);

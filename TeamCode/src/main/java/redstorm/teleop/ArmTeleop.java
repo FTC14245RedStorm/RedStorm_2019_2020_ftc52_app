@@ -17,7 +17,7 @@ import redstorm.Robot.Robot;
 @Disabled
 
 public class ArmTeleop extends OpMode{
-public Robot snacktime = new Robot()
+public Robot snacktime = new Robot();
     public void init() {
 
 
@@ -74,13 +74,6 @@ public Robot snacktime = new Robot()
 
         imu = hwMap.get(BNO055IMU.class, "imu");
 
-        if (gamepad1.a) {
-            newPosition = 0.9;
-        }  else if (gamepad1.x) {
-            newPosition = 0.0;
-        }
-        snacktime.setServoRight(1.0-newPosition);
-        snacktime.setServoLeft(newPosition);
 
         double left;
         double right;
