@@ -122,7 +122,7 @@ public class BuildSideV2Red extends LinearOpMode {
         //turn left 60 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.-50, 0.50);
+        snacktime.setDriveMotorPower(0.-30, 0.30);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 60.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
