@@ -44,7 +44,7 @@ public class loadBlueShort extends LinearOpMode {
         //turn left 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.50, 0.50);
+        snacktime.setDriveMotorPower(-0.5, 0.5);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 90.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -59,7 +59,7 @@ public class loadBlueShort extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(60.0);
-        snacktime.setDriveMotorPower(1.00, 1.00);
+        snacktime.setDriveMotorPower(0.5, 0.5);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
