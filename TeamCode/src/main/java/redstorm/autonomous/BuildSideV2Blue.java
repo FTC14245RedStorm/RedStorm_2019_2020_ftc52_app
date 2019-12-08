@@ -5,10 +5,10 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="BuildSideV2")
+@Autonomous(name="BuildSideV2Blue")
 
 
-public class BuildSideV2 extends LinearOpMode {
+public class BuildSideV2Blue extends LinearOpMode {
 
 
     public Robot snacktime = new Robot();    // Create a new instance of the robot
