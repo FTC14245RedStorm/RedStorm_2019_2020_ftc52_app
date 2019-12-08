@@ -5,9 +5,9 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="Blue, Load Side, Short Distance")
+@Autonomous(name="Red, Load Side, Short Distance")
 
-public class loadBlueShort extends LinearOpMode {
+public class loadRedShort extends LinearOpMode {
 
     public Robot snacktime = new Robot();    // Create a new instance of the robot
 
@@ -41,10 +41,10 @@ public class loadBlueShort extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        //turn left 90 degrees
+        //turn right 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.50, 0.50);
+        snacktime.setDriveMotorPower(0.50, -0.50);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 90.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);

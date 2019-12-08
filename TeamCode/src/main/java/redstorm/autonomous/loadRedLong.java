@@ -5,9 +5,9 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="Blue, Load Side, Short Distance")
+@Autonomous(name="Red, Load Side, Long Distance")
 
-public class loadBlueShort extends LinearOpMode {
+public class loadRedLong extends LinearOpMode {
 
     public Robot snacktime = new Robot();    // Create a new instance of the robot
 
@@ -30,7 +30,7 @@ public class loadBlueShort extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(3.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(28.0);
         snacktime.setDriveMotorPower(0.5, 0.5);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -41,12 +41,12 @@ public class loadBlueShort extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        //turn left 90 degrees
+        //turn right 78 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.50, 0.50);
+        snacktime.setDriveMotorPower(0.20, -0.20);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 90.0) {
+                snacktime.getHeading() < 78.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -59,7 +59,7 @@ public class loadBlueShort extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(60.0);
-        snacktime.setDriveMotorPower(1.00, 1.00);
+        snacktime.setDriveMotorPower(0.5, 0.5);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
