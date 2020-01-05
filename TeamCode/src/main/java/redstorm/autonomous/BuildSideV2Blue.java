@@ -133,10 +133,10 @@ public class BuildSideV2Blue extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-            // Go fowards 17 inches
+            // Go fowards 17.5 inches
             snacktime.resetEncoders();
             snacktime.runWithEncoders();
-            distanceToTravel = snacktime.calculateEncoderCounts(17.0);
+            distanceToTravel = snacktime.calculateEncoderCounts(17.5);
             snacktime.setDriveMotorPower(1.00, 1.00);
             while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
                 telemetry.addData("Distance To Travel: ", distanceToTravel);
