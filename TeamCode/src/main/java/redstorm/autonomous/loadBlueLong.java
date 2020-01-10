@@ -63,7 +63,7 @@ public class loadBlueLong extends LinearOpMode {
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
-        while (opModeIsActive() && snacktime.getHue() < 150 && snacktime.getDriveEncoderCount() <= distanceToTravel) {
+        while (opModeIsActive() && snacktime.getHue() < 150.0 && snacktime.getDriveEncoderCount() <= distanceToTravel) {
 
 
             telemetry.addData("Hue: ", snacktime.getHue());

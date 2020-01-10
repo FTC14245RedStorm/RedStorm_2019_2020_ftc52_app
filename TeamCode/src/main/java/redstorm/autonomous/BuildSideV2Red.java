@@ -147,12 +147,12 @@ public class BuildSideV2Red extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-            //turn right 63 degrees
+            //turn right 70 degrees
             snacktime.initializeIMU();
             startHeading = snacktime.getHeading();
             snacktime.setDriveMotorPower(0.30, -0.30);
             while (opModeIsActive() &&
-                    snacktime.getHeading() < 63.0) {
+                    snacktime.getHeading() < 70.0) {
                 telemetry.addData("Starting heading: ", "%5.2f", startHeading);
                 telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
                 telemetry.update();
@@ -179,7 +179,7 @@ public class BuildSideV2Red extends LinearOpMode {
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(0.30, -0.30);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 55.0) {
+                snacktime.getHeading() < 65.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -245,7 +245,7 @@ public class BuildSideV2Red extends LinearOpMode {
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(0.50, -0.50);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 33.0) {
+                snacktime.getHeading() < 34.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -257,7 +257,7 @@ public class BuildSideV2Red extends LinearOpMode {
 
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(40.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(46.0);
         snacktime.setDriveMotorPower(1.00, 1.00);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();

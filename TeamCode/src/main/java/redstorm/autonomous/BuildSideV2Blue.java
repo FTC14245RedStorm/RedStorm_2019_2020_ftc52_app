@@ -190,7 +190,7 @@ public class BuildSideV2Blue extends LinearOpMode {
         // Go fowards 12 inches
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(12.0);
+        distanceToTravel = snacktime.calculateEncoderCounts(6.0);
         snacktime.setDriveMotorPower(1.00, 1.00);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
@@ -201,12 +201,12 @@ public class BuildSideV2Blue extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0);
 
-        //turn left 70 degrees
+        //turn left 55 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-0.50, 0.50);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 70.0) {
+                snacktime.getHeading() < 55.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -218,7 +218,7 @@ public class BuildSideV2Blue extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(42.0);
-        snacktime.setDriveMotorPower(1.00, 1.00);
+        snacktime.setDriveMotorPower(1.00, 0.90);
         while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ", snacktime.getDriveEncoderCount());
@@ -245,7 +245,7 @@ public class BuildSideV2Blue extends LinearOpMode {
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-0.50, 0.50);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 31.0) {
+                snacktime.getHeading() < 35.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
