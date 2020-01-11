@@ -98,7 +98,6 @@ public class Robot {
 
         //Set servos to starting positions
         setFoundationServosUp();
-        setServoArmUp();
         setServoClawClosed();
 
 

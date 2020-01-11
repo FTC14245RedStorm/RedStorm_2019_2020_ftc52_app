@@ -33,7 +33,7 @@ public class stopUnderBridge extends LinearOpMode {
         robot.resetEncoders();                     // Reset the encoder counts
         robot.runWithEncoders();                   // Tell the motors to run with encoders
 
-            distanceToTravel = robot.calculateEncoderCounts(20000);
+            distanceToTravel = robot.calculateEncoderCounts(36);
 
             robot.setDriveMotorPower(0.5, 0.5);
         telemetry.addData("Hue: ", robot.getHue());
