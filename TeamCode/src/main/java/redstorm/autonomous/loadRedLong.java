@@ -31,20 +31,20 @@ public class loadRedLong extends LinearOpMode {
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
         distanceToTravel = snacktime.calculateEncoderCounts(28.0);
-        snacktime.setDriveMotorPower(0.5, 0.5);
-        while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
+        snacktime.setDriveMotorPower(0.5, 0.5,0.5,0.5);
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
-            telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
+            telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
             telemetry.update();
 
         }
 
-        snacktime.setDriveMotorPower(0.0, 0.0);
+        snacktime.setDriveMotorPower(0.0, 0.0,0.0,0.0);
 
         //turn right 78 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.20, -0.20);
+        snacktime.setDriveMotorPower(0.20, -0.20,0.20,-0.20);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 78.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -52,18 +52,18 @@ public class loadRedLong extends LinearOpMode {
             telemetry.update();
         }
 
-        snacktime.setDriveMotorPower(0.0, 0.0);
+        snacktime.setDriveMotorPower(0.0, 0.0,0.0,0.0);
 
         // Find the line and stop
 
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(60.0);
-        snacktime.setDriveMotorPower(0.5, 0.5);
+        snacktime.setDriveMotorPower(0.5, 0.5,0.5,0.5);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
-        while (opModeIsActive() && snacktime.getHue() > 10.0 && snacktime.getDriveEncoderCount() <= distanceToTravel) {
+        while (opModeIsActive() && snacktime.getHue() > 10.0 && snacktime.getSortedEncoderCount() <= distanceToTravel) {
 
 
             telemetry.addData("Hue: ", snacktime.getHue());
@@ -71,6 +71,6 @@ public class loadRedLong extends LinearOpMode {
 
         }
 
-        snacktime.setDriveMotorPower(0,0);
+        snacktime.setDriveMotorPower(0,0,0,0);
     }
 }
