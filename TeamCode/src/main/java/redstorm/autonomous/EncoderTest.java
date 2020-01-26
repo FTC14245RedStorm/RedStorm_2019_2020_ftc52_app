@@ -38,14 +38,13 @@ public class EncoderTest extends LinearOpMode {
 
         // While the autonomous period is still active AND the robot has not reached the number
         // of encoder counts to travel 24 inches
-        while(opModeIsActive() && robot.getDriveEncoderCount() < 5000) {
+        while(opModeIsActive() && robot.getSortedEncoderCount() < 5000) {
 
             telemetry.addData("Status ", "opModeIsActive");
 
 
             robot.setDriveMotorPower(0.5, 0.50);   // Set power to 50%
-            telemetry.addData("Left Drive Encoder Counts", "(%.0f)",robot.getLeftDriveEncoderCounts());
-            telemetry.addData("Right Front Drive Encoder Counts", "(%.0f)", robot.getRightDriveEncoderCounts());
+            telemetry.addData("Left Drive Encoder Counts", "(%.0f)",snacktime.getSortedEncoderCounts());
 
             robot.setDriveMotorPower(0.0,0.0);
 
@@ -57,14 +56,13 @@ public class EncoderTest extends LinearOpMode {
         robot.runWithEncoders();
 
 
-        while( opModeIsActive()  && robot.getDriveEncoderCount() < 5000) {
+        while( opModeIsActive()  && robot.getSortedEncoderCount() < 5000) {
 
 
 
 
-            robot.setDriveMotorPower(-0.5, -0.50);   // Set power to 50%
-            telemetry.addData("Left Drive Encoder Counts", "(%.0f)", robot.getLeftDriveEncoderCounts());
-            telemetry.addData("Right Front Drive Encoder Counts", "(%.0f)", robot.getRightDriveEncoderCounts());
+            snacktime.setDriveMotorPower(-0.5, -0.50,-0.5,);   // Set power to 50%
+            telemetry.addData("Left Drive Encoder Counts", "(%.0f)", robot.getSortedEncoderCounts());
 
 
             telemetry.update();

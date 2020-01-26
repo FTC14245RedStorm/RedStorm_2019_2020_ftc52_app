@@ -31,14 +31,14 @@ public class driveTwoFeet extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(24.0);
-        snacktime.setDriveMotorPower(1.0, 1.0);
-        while (opModeIsActive() && snacktime.getDriveEncoderCount() < distanceToTravel) {
+        snacktime.setDriveMotorPower(1.0, 1.0,1.0,1.0);
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
-            telemetry.addData("Encoder Count: ",snacktime.getDriveEncoderCount());
+            telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
             telemetry.update();
 
         }
 
-        snacktime.setDriveMotorPower(0,0);
+        snacktime.setDriveMotorPower(0,0,0,0);
     }
 }
