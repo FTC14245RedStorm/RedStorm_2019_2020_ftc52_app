@@ -27,8 +27,10 @@ import static redstorm.Constants.RobotConstants.COLOR_SENSOR_SCALE_FACTOR;
 public class Robot {
 
     public HardwareMap hwMap = null;
-    public DcMotor rightDrive = null;
-    public DcMotor leftDrive = null;
+    public DcMotor backRightDrive = null;
+    public DcMotor backLeftDrive = null;
+    public DcMotor frontRightDrive = null;
+    public DcMotor frontLeftDrive = null;
 
     public BNO055IMU imu = null;
     public ColorSensor colorSensor = null;
@@ -65,8 +67,11 @@ public class Robot {
 
         // Define and initialize motors, the names here are what appears
         // in the configuration file on the Robot Controller/Driver Station
-        leftDrive = hwMap.get(DcMotor.class, "left_motor");
-        rightDrive = hwMap.get(DcMotor.class, "right_motor");
+        frontLeftDrive = hwMap.get(DcMotor.class, "front_left_motor");
+        frontRightDrive = hwMap.get(DcMotor.class, "front_right_motor");
+        backLeftDrive = hwMap.get(DcMotor.class, "back_left_motor");
+        backRightDrive = hwMap.get(DcMotor.class, "back_right_motor");
+
 
         // Defines and initializes the color sensor
         colorSensor = hwMap.get(ColorSensor.class, "sensor_color_distance");
@@ -84,17 +89,23 @@ public class Robot {
         // to be REVERSE so that the left motor will spin forwards with respect
         // to the ROBOT.
         //
-        leftDrive.setDirection(DcMotor.Direction.REVERSE);
-        rightDrive.setDirection(DcMotor.Direction.FORWARD);
+        frontLeftDrive.setDirection(DcMotor.Direction.REVERSE);
+        frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
+        backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
+        backRightDrive.setDirection(DcMotor.Direction.FORWARD);
 
 
         // Set all motors to zero power
-        rightDrive.setPower(0);
-        leftDrive.setPower(0);
+        frontLeftDrive.setPower(0);
+        frontRightDrive.setPower(0);
+        backLeftDrive.setPower(0);
+        backRightDrive.setPower(0);
 
         // Set all motors to run without encoders.
-        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //Set servos to starting positions
         setFoundationServosUp();
@@ -138,8 +149,10 @@ public class Robot {
      */
     public void resetEncoders() {
 
-        leftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
-        rightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        frontLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        frontRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backLeftDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
+        backRightDrive.setMode(DcMotor.RunMode.STOP_AND_RESET_ENCODER);
     }
 
     /**
@@ -147,8 +160,10 @@ public class Robot {
      */
     public void runWithEncoders() {
 
-        leftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        rightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
     /**
@@ -156,8 +171,10 @@ public class Robot {
      */
     public void runWithoutEncoders() {
 
-        leftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
-        rightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        frontRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
+        backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
     /**
      * This method will return COUNTS after it is calculated from distance
@@ -184,17 +201,32 @@ public class Robot {
      * This method will return the average encoder count from the left and right drive motors
      * @return averageEncoderCount - the average encoder count from the left and right drive motors
      */
-    public double getDriveEncoderCount() {
-        double leftEncoderCount;
-        double rightEncoderCount;
-        double averageEncoderCount;
+    public double getSortedEncoderCount() {
+        double[] encoderCounts = new double[4];
+        encoderCounts = getDriveEncoderCounts();
+        double temp = 0;
 
-        leftEncoderCount = Math.abs(leftDrive.getCurrentPosition());      // Get the current encoder count for the left motor
-        rightEncoderCount = Math.abs(rightDrive.getCurrentPosition());    // Get the current encoder count for the right motor
+        for (int i = 0; i < 3; i++) {
+            for (int j = i+1; j < 4; j++) {
+                if (encoderCounts[i] <= encoderCounts[j]) {
+                    //do nothing
+                }
 
-        averageEncoderCount = (leftEncoderCount + rightEncoderCount) / 2.0;  // Calculate the average
+                else {
+                    temp = encoderCounts[i];
+                    encoderCounts[i] = encoderCounts[j];
+                    encoderCounts[j] = temp;
 
-        return averageEncoderCount;
+                }
+
+            }
+
+
+        }
+
+
+
+        return (encoderCounts[1] + encoderCounts[2]) / 2.0;
 
     }
 
@@ -202,10 +234,10 @@ public class Robot {
      * This method will return the average encoder count from the left and right drive motors
      * @return averageEncoderCount - the average encoder count from the left and right drive motors
      */
-    public double getLeftDriveEncoderCounts() {
+    public double getBackLeftDriveEncoderCounts() {
         double leftEncoderCount;
 
-        leftEncoderCount = Math.abs(leftDrive.getCurrentPosition());      // Get the current encoder count for the left motor
+        leftEncoderCount = Math.abs(backLeftDrive.getCurrentPosition());      // Get the current encoder count for the left motor
 
         return leftEncoderCount;
     }
@@ -214,11 +246,46 @@ public class Robot {
      * This method will return the average encoder count from the left and right drive motors
      * @return averageEncoderCount - the average encoder count from the left and right drive motors
      */
-    public double getRightDriveEncoderCounts() {
+    public double getBackRightDriveEncoderCounts() {
         double rightEncoderCount;
-        rightEncoderCount = Math.abs(rightDrive.getCurrentPosition());    // Get the current encoder count for the right motor
+        rightEncoderCount = Math.abs(backRightDrive.getCurrentPosition());    // Get the current encoder count for the right motor
         return rightEncoderCount;
     }
+
+    /**
+     * This method will return the average encoder count from the left and right drive motors
+     * @return averageEncoderCount - the average encoder count from the left and right drive motors
+     */
+    public double getFrontRightDriveEncoderCounts() {
+        double rightEncoderCount;
+        rightEncoderCount = Math.abs(frontRightDrive.getCurrentPosition());    // Get the current encoder count for the right motor
+        return rightEncoderCount;
+    }
+
+    /**
+     * This method will return the average encoder count from the left and right drive motors
+     * @return averageEncoderCount - the average encoder count from the left and right drive motors
+     */
+    public double getFrontLeftDriveEncoderCounts() {
+        double rightEncoderCount;
+        rightEncoderCount = Math.abs(frontLeftDrive.getCurrentPosition());    // Get the current encoder count for the right motor
+        return rightEncoderCount;
+    }
+
+    /**
+     * This method will return the drive motors
+     * @return encoderCounts - returns encoder counts backLeft, backRight, frontLeft, frontRight
+     */
+    public double[] getDriveEncoderCounts() {
+        double[] encoderCounts = new double[4];
+        encoderCounts[0] = Math.abs(backLeftDrive.getCurrentPosition());
+        encoderCounts[1] = Math.abs(backRightDrive.getCurrentPosition());
+        encoderCounts[2] = Math.abs(frontLeftDrive.getCurrentPosition());
+        encoderCounts[3] = Math.abs(frontRightDrive.getCurrentPosition());
+
+        return encoderCounts;
+    }
+
 
     public float getHeading() {
         float heading;
@@ -235,11 +302,13 @@ public class Robot {
      * @param leftBackMotorPower power setting for the left back motor
      * @param rightBackMotorPower power setting for the right back motor
      */
-    public void setDriveMotorPower(double leftBackMotorPower, double rightBackMotorPower){
+    public void setDriveMotorPower(double leftBackMotorPower, double rightBackMotorPower, double frontLeftMotorPower, double frontRightMotorPower){
 
         /* Set the motor powers */
-        leftDrive.setPower(leftBackMotorPower);
-        rightDrive.setPower(rightBackMotorPower);
+        backLeftDrive.setPower(leftBackMotorPower);
+        backRightDrive.setPower(rightBackMotorPower);
+        frontLeftDrive.setPower(leftBackMotorPower);
+        frontRightDrive.setPower(rightBackMotorPower);
     }
 
     /**
