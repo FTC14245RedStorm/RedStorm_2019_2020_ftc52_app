@@ -162,7 +162,7 @@ public class BuildSideV2Blue extends LinearOpMode {
 
         // Go fowards 32 inches get by foundation
         snacktime.resetEncoders();
-        snacktime.ru   nWithEncoders();
+        snacktime.runWithEncoders();
         distanceToTravel = snacktime.calculateEncoderCounts(32.0);
         snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
