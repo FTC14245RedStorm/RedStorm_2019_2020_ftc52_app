@@ -229,7 +229,7 @@ public class Robot {
         return (encoderCounts[1] + encoderCounts[2]) / 2.0;
 
     }
-
+ public double
     /**
      * This method will return the average encoder count from the left and right drive motors
      * @return averageEncoderCount - the average encoder count from the left and right drive motors
