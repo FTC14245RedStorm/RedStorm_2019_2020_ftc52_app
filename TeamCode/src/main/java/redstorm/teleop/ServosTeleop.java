@@ -46,7 +46,7 @@ public class ServosTeleop extends OpMode{
         left = -gamepad1.left_stick_y;
         right = -gamepad1.right_stick_y;
 
-        snacktime.setDriveMotorPower(left, right);
+        snacktime.setDriveMotorPower(left, right, left, right);
 
     }
 
