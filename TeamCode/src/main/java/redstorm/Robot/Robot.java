@@ -60,7 +60,7 @@ public class Robot {
      *
      * @param ahwMap hardware map for the robot
      */
-    public void initialize(HardwareMap ahwMap) {
+    public void     initialize(HardwareMap ahwMap) {
 
         // Save reference to hardware map
         hwMap = ahwMap;
@@ -176,6 +176,19 @@ public class Robot {
         backLeftDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
     }
+
+    /**
+     * This method sets the motors to run with encoders and in RUN_TO_POSITION mode
+     */
+
+    public void runWithEncodersRTP() {
+
+        frontLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        frontRightDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+        backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
+    }
+
     /**
      * This method will return COUNTS after it is calculated from distance
      *
