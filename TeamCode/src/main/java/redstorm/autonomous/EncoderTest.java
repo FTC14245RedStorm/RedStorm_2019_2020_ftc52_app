@@ -8,11 +8,13 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 import redstorm.Robot.Robot;
 
 
-@Autonomous (name="Encoder Test", group="Test")
-/**
+// @Autonomous (name="Encoder Test", group="Test")
+
+/*
  * Created by Steve Kocik as a sample for RedStorm to build off of...
  */
 
+/**
 public class EncoderTest extends LinearOpMode {
 
     Robot robot = new Robot();
@@ -43,10 +45,10 @@ public class EncoderTest extends LinearOpMode {
             telemetry.addData("Status ", "opModeIsActive");
 
 
-            robot.setDriveMotorPower(0.5, 0.50);   // Set power to 50%
+            robot.setDriveMotorPower(0.5, 0.50,0.5,0.5);   // Set power to 50%
             telemetry.addData("Left Drive Encoder Counts", "(%.0f)",snacktime.getSortedEncoderCounts());
 
-            robot.setDriveMotorPower(0.0,0.0);
+            robot.setDriveMotorPower(0.0,0.0,0.0,0.0);
 
             telemetry.update();
         }
@@ -61,7 +63,7 @@ public class EncoderTest extends LinearOpMode {
 
 
 
-            snacktime.setDriveMotorPower(-0.5, -0.50,-0.5,);   // Set power to 50%
+            robot.setDriveMotorPower(-0.5, -0.50,-0.5,-0.5);   // Set power to 50%
             telemetry.addData("Left Drive Encoder Counts", "(%.0f)", robot.getSortedEncoderCounts());
 
 
@@ -71,6 +73,7 @@ public class EncoderTest extends LinearOpMode {
 
 
 
-        robot.setDriveMotorPower(0.0,0.0);         // Motors stop
+        robot.setDriveMotorPower(0.0,0.0,0.0,0.0);         // Motors stop
     }
 }
+ */

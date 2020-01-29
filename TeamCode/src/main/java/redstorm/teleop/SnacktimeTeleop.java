@@ -97,7 +97,7 @@ public class  SnacktimeTeleop extends OpMode{
         // making power less for remote
         /* Set the motor power for the robot.
          */
-        robot.setDriveMotorPower(left, right);
+        robot.setDriveMotorPower(left, right, left, right);
 
   // setting lift power for the robot
 
