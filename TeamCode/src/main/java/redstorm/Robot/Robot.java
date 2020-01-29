@@ -198,6 +198,16 @@ public class Robot {
 
     }
 
+    public double calculateRTPEncoderCounts(double deltaEncoderCount) {
+
+        double currentDTEncoderCount;
+
+        currentDTEncoderCount = getSortedEncoderCount();
+
+        return (currentDTEncoderCount + deltaEncoderCount);
+
+    }
+
     /**
      * This method will return COUNTS after it is calculated from distance
      *
