@@ -189,6 +189,15 @@ public class Robot {
         backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
+    public void setDTMotorPosition(int Position){
+
+        frontLeftDrive.setTargetPosition(Position);
+        frontRightDrive.setTargetPosition(Position);
+        backLeftDrive.setTargetPosition(Position);
+        backLeftDrive.setTargetPosition(Position);
+
+    }
+
     /**
      * This method will return COUNTS after it is calculated from distance
      *
