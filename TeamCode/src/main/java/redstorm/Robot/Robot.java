@@ -189,6 +189,10 @@ public class Robot {
         backLeftDrive.setMode(DcMotor.RunMode.RUN_TO_POSITION);
     }
 
+    /**
+     * This method will set the target position for the drive train motors.
+     * @param Position the target position
+     */
     public void setDTMotorPosition(int Position){
 
         frontLeftDrive.setTargetPosition(Position);
@@ -198,6 +202,12 @@ public class Robot {
 
     }
 
+    /**
+     * This method will calculate a run to position encodercount for the drive train motors.
+     * If the robot is to travel backwards, specify a negative for teh deltaEncoderCount.
+     * @param deltaEncoderCount is the average encoder count.
+     * @return
+     */
     public double calculateRTPEncoderCounts(double deltaEncoderCount) {
 
         double currentDTEncoderCount;
