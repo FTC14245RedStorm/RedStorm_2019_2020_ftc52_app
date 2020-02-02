@@ -18,7 +18,7 @@ import redstorm.Robot.Robot;
 // This line establishes the name of the op mode and
 // extends the header file "OpMode" in order to create a teleop op mode.  just for fun
 
-public class SnacktimeTeleopJustMotors extends OpMode{
+public class SnacktimeTeleopV2 extends OpMode{
     // Create an instance of Robot and store it into robot
     public Robot robot = new Robot();
     /**
@@ -46,9 +46,11 @@ public class SnacktimeTeleopJustMotors extends OpMode{
 
            First get the value for the left Y and right Y sticks
           */
+        boolean foundationDown = gamepad2.left_bumper;
+        boolean foundationUp = gamepad2.right_bumper;
+
         double left  = -gamepad1.left_stick_y;
         double right = -gamepad1.right_stick_y;
-
 
         /* Insure that the values from the gamepad for left and right will
            always be between -1.0 and 1.0.  This is done since motor powers
@@ -68,7 +70,15 @@ public class SnacktimeTeleopJustMotors extends OpMode{
          */
         robot.setDriveMotorPower(left, right, left, right);
 
-  // setting lift power for the robot
+        if (foundationDown == true) {
+            robot.setFoundationServosDown();
+        }
+
+        if (foundationUp == true) {
+            robot.setFoundationServosUp();
+        }
+
+        // setting lift power for the robot
 
     }
     /**
