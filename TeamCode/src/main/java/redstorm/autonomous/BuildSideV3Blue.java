@@ -32,11 +32,12 @@ public class BuildSideV3Blue extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(10.0);
+        distanceToTravel = snacktime.calculateRTPEncoderCounts(30.0);
 
-        // Having the robot travel 10 inches
-        snacktime.setDriveMotorPower(0.75, 0.75, 0.75, 0.75);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() <= distanceToTravel) {
+        // Having the robot travel 30 inches
+        snacktime.setDTMotorPosition((int)distanceToTravel);
+        snacktime.setDriveMotorPower(1,1,1,1);
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
             telemetry.update();
@@ -47,45 +48,18 @@ public class BuildSideV3Blue extends LinearOpMode {
         telemetry.addData("Stopping", " Motors");
         telemetry.update();
 
-
-        //turn right 3 degrees
-        snacktime.initializeIMU();
-        startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.30, 0.30, -0.30, 0.30);
-        while (opModeIsActive() &&
-                snacktime.getHeading() < 5.0) {
-            telemetry.addData("Starting heading: ", "%5.2f", startHeading);
-            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
-            telemetry.update();
-        }
-
-            snacktime.resetEncoders();                     // Reset the encoder counts
-            snacktime.runWithEncoders();                   // Tell the motors to run with encoders
-            distanceToTravel = snacktime.calculateEncoderCounts(20);
-
-            // Having the robot travel 20 inches
-            snacktime.setDriveMotorPower(0.75, 0.75, 0.75, 0.75);
-            while (opModeIsActive() && snacktime.getSortedEncoderCount() <= distanceToTravel) {
-                telemetry.addData("Distance To Travel: ", distanceToTravel);
-                telemetry.addData("Encoder Count: ", snacktime.getSortedEncoderCount());
-                telemetry.update();
-            }
-
-            snacktime.setDriveMotorPower(0.0,0.0, 0.0, 0.0);
-
         // Putting servos down to latch onto foundation
         snacktime.setFoundationServosDown();
         telemetry.addData("Latching on to", " foundation");
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
-
-
-        // Pulling the foundation backwards 33 in.
+        // Pulling the foundation backwards 20 in.
         snacktime.resetEncoders();
-        snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(33.0);
-        snacktime.setDriveMotorPower(-0.75, -0.75, -0.75, -0.75);
+        snacktime.runWithEncodersRTP();
+        distanceToTravel = snacktime.calculateRTPEncoderCounts(20.0);
+        snacktime.setDriveMotorPower(1, 1, 1, 1);
+        snacktime.setDTMotorPosition(-(int) distanceToTravel);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -96,35 +70,15 @@ public class BuildSideV3Blue extends LinearOpMode {
         snacktime.setDriveMotorPower(0,0, 0, 0);
         // Let go of the foundation
 
-        snacktime.setFoundationServosUp();
-        telemetry.addData("Letting Go of Foundation", " foundation");
-        telemetry.update();
-        Thread.sleep( 500);    // Need some time to let the servos get into position
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
         snacktime.resetEncoders();                     // Reset the encoder counts
-        snacktime.runWithEncoders();                   // Tell the motors to run with encoders
+        snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
 
-        // Go backwards 1 inches
-        snacktime.resetEncoders();
-        snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(1.0);
-        snacktime.setDriveMotorPower(-1.0, -1.0, -1.0, -1.0);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
-            telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
-            telemetry.update();
-
-        }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-        //turn right 63 degrees
+        //turn left backwards 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.5, -0.5, 0.5, -0.5);
+        snacktime.setDriveMotorPower(0.5, 1, 0.5, 1);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 63.0) {
+                snacktime.getHeading() < 90.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -133,11 +87,12 @@ public class BuildSideV3Blue extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
 
-            // Go fowards 13.5 inches
+            // Go fowards 20 inches
             snacktime.resetEncoders();
-            snacktime.runWithEncoders();
-            distanceToTravel = snacktime.calculateEncoderCounts(17.5);
+            snacktime.runWithEncodersRTP();
+            distanceToTravel = snacktime.calculateRTPEncoderCounts(20);
             snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
+            snacktime.setDTMotorPosition((int)distanceToTravel);
             while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
                 telemetry.addData("Distance To Travel: ", distanceToTravel);
                 telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -147,118 +102,19 @@ public class BuildSideV3Blue extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
 
-            //turn left 58 degrees
-            snacktime.initializeIMU();
-            startHeading = snacktime.getHeading();
-            snacktime.setDriveMotorPower(-0.30, 0.30, -0.30, 0.30);
-            while (opModeIsActive() &&
-                    snacktime.getHeading() < 70.0) {
-                telemetry.addData("Starting heading: ", "%5.2f", startHeading);
-                telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
-                telemetry.update();
-            }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-        // Go fowards 32 inches get by foundation
-        snacktime.resetEncoders();
-        snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(32.0);
-        snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
-            telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
-            telemetry.update();
-
-        }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-        //turn left 55 degrees
-        snacktime.initializeIMU();
-        startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.30, 0.30, -0.30, 0.30);
-        while (opModeIsActive() &&
-                snacktime.getHeading() < 55.0) {
-            telemetry.addData("Starting heading: ", "%5.2f", startHeading);
-            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
-            telemetry.update();
-        }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-        // Go fowards 12 inches
-        snacktime.resetEncoders();
-        snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(6.0);
-        snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
-            telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
-            telemetry.update();
-
-        }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-        //turn left 55 degrees
-        snacktime.initializeIMU();
-        startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.50, 0.50, -0.50, 0.50);
-        while (opModeIsActive() &&
-                snacktime.getHeading() < 55.0) {
-            telemetry.addData("Starting heading: ", "%5.2f", startHeading);
-            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
-            telemetry.update();
-        }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-        // Go fowards 42 inches
-        snacktime.resetEncoders();
-        snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(42.0);
-        snacktime.setDriveMotorPower(1.00, 0.90, 1.0, 0.90);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
-            telemetry.addData("Encoder Count: ", snacktime.getSortedEncoderCount());
-            telemetry.update();
-        }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-        // Go backwards 5 inches
-        snacktime.resetEncoders();
-        snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(5.0);
-        snacktime.setDriveMotorPower(-1.0, -1.0, -1.0, -1.0);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
-            telemetry.addData("Encoder Count: ", snacktime.getSortedEncoderCount());
-            telemetry.update();
-        }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-        //turn left 29 degrees
-        snacktime.initializeIMU();
-        startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.50, 0.50, -0.50, 0.50);
-        while (opModeIsActive() &&
-                snacktime.getHeading() < 35.0) {
-            telemetry.addData("Starting heading: ", "%5.2f", startHeading);
-            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
-            telemetry.update();
-        }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
+        // Putting servos up to let go of foundation
+        snacktime.setFoundationServosUp();
+        telemetry.addData("Letting Go of Foundation ", " foundation");
+        telemetry.update();
+        Thread.sleep( 500);    // Need some time to let the servos get into position
 
         // find the line and stop
 
         snacktime.resetEncoders();
-        snacktime.runWithEncoders();
-        distanceToTravel = snacktime.calculateEncoderCounts(40.0);
-        snacktime.setDriveMotorPower(0.75, 0.75, 0.75, 0.75);
+        snacktime.runWithEncodersRTP();
+        distanceToTravel = snacktime.calculateRTPEncoderCounts(40.0);
+        snacktime.setDriveMotorPower(1, 1, 1, 1);
+        snacktime.setDTMotorPosition(-(int)distanceToTravel);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
