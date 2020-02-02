@@ -4,6 +4,7 @@ package redstorm.autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
 import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
+import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import redstorm.Robot.Robot;
 
@@ -14,12 +15,12 @@ import redstorm.Robot.Robot;
  * Created by Steve Kocik as a sample for RedStorm to build off of...
  */
 
+@TeleOp
 
 public class EncoderTest extends LinearOpMode {
 
     Robot robot = new Robot();
 
-    @Override
     public void runOpMode() throws InterruptedException{
 
 
