@@ -14,7 +14,7 @@ import redstorm.Robot.Robot;
  * Created by Steve Kocik as a sample for RedStorm to build off of...
  */
 
-/**
+
 public class EncoderTest extends LinearOpMode {
 
     Robot robot = new Robot();
@@ -37,43 +37,25 @@ public class EncoderTest extends LinearOpMode {
 
 
 
+        double encCounts[] = new double[4];
 
         // While the autonomous period is still active AND the robot has not reached the number
         // of encoder counts to travel 24 inches
-        while(opModeIsActive() && robot.getSortedEncoderCount() < 5000) {
-
+        while(opModeIsActive()) {
             telemetry.addData("Status ", "opModeIsActive");
 
 
             robot.setDriveMotorPower(0.5, 0.50,0.5,0.5);   // Set power to 50%
-            telemetry.addData("Left Drive Encoder Counts", "(%.0f)",snacktime.getSortedEncoderCounts());
+            encCounts = robot.getDriveEncoderCounts();
+            telemetry.addData("Back Left Drive Encoder Counts","(%.0f)",encCounts[0]);
+            telemetry.addData("Back Right Drive Encoder Counts","(%.0f)",encCounts[1]);
+            telemetry.addData("Front Left Drive Encoder Counts","(%.0f)",encCounts[2]);
+            telemetry.addData("Front Right Drive Encoder Counts","(%.0f)",encCounts[3]);
 
             robot.setDriveMotorPower(0.0,0.0,0.0,0.0);
 
             telemetry.update();
         }
 
-        Thread.sleep(500);
-        robot.resetEncoders();
-        robot.runWithEncoders();
-
-
-        while( opModeIsActive()  && robot.getSortedEncoderCount() < 5000) {
-
-
-
-
-            robot.setDriveMotorPower(-0.5, -0.50,-0.5,-0.5);   // Set power to 50%
-            telemetry.addData("Left Drive Encoder Counts", "(%.0f)", robot.getSortedEncoderCounts());
-
-
-            telemetry.update();
-        }
-
-
-
-
-        robot.setDriveMotorPower(0.0,0.0,0.0,0.0);         // Motors stop
     }
 }
- */

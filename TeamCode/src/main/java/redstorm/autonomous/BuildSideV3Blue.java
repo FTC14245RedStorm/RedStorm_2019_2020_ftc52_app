@@ -31,7 +31,7 @@ public class BuildSideV3Blue extends LinearOpMode {
         waitForStart();
 
         snacktime.resetEncoders();                     // Reset the encoder counts
-        snacktime.runWithEncoders();                   // Tell the motors to run with encoders
+        snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
         distanceToTravel = snacktime.calculateRTPEncoderCounts(30.0);
 
         // Having the robot travel 30 inches
