@@ -87,7 +87,7 @@ public class BuildSideV3Blue extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
 
-            // Go fowards 20 inches
+            // Go forwards 20 inches
             snacktime.resetEncoders();
             snacktime.runWithEncodersRTP();
             distanceToTravel = snacktime.calculateRTPEncoderCounts(20);

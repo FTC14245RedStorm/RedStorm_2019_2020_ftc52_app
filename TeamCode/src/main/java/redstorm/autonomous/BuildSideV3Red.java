@@ -9,7 +9,8 @@ import redstorm.Robot.Robot;
 @Autonomous(name="BuildSideV2Red")
 @Disabled
 
-public class BuildSideV2Red extends LinearOpMode {
+
+public class BuildSideV3Red extends LinearOpMode {
 
 
     public Robot snacktime = new Robot();    // Create a new instance of the robot
