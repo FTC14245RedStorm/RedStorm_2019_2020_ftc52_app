@@ -73,7 +73,7 @@ public class BuildSideV3Red extends LinearOpMode {
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
 
-        //turn right backwards 90 degrees
+        //turn right backwards 90 degrees.
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(1, 0.5, 1, 0.5);
