@@ -99,7 +99,7 @@ public class FirstTeleop extends OpMode{
         currStateb = gamepad1.b;
 
 
-        snacktime.servoArm.setPosition(0.02);
+        //snacktime.servoArm.setPosition(0.02);
 
         // Run wheels in tank mode (note: The joystick goes negative when pushed forwards, so negate it)
         left = -gamepad1.left_stick_y;
@@ -107,27 +107,27 @@ public class FirstTeleop extends OpMode{
 
        snacktime.setDriveMotorPower(left, right, left, right);
 
-       if (currStatex) {
-           snacktime.setServoArmDown();
-
-           telemetry.addData("X Button:", "Pressed");
-       }
-       else if (currStatey) {
-           snacktime.setServoArmUp();
-
-           telemetry.addData("Y Button:", "Pressed");
-       }
-
-       if (currStatea) {
-           snacktime.setServoClawClosed();
-
-           telemetry.addData("A Button:", "Pressed");
-       }
-       else if (currStateb) {
-           snacktime.setServoClawOpen();
-
-           telemetry.addData("B Button:", "Pressed");
-       }
+//       if (currStatex) {
+//           snacktime.setServoArmDown();
+//
+//           telemetry.addData("X Button:", "Pressed");
+//       }
+//       else if (currStatey) {
+//           snacktime.setServoArmUp();
+//
+//           telemetry.addData("Y Button:", "Pressed");
+//       }
+//
+//       if (currStatea) {
+//           snacktime.setServoClawClosed();
+//
+//           telemetry.addData("A Button:", "Pressed");
+//       }
+//       else if (currStateb) {
+//           snacktime.setServoClawOpen();
+//
+//           telemetry.addData("B Button:", "Pressed");
+//       }
 
 
     }

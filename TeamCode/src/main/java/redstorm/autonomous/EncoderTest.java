@@ -9,13 +9,12 @@ import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 import redstorm.Robot.Robot;
 
 
-// @Autonomous (name="Encoder Test", group="Test")
+@Autonomous (name="Encoder Test", group="Test")
 
 /*
  * Created by Steve Kocik as a sample for RedStorm to build off of...
  */
 
-@Autonomous
 
 public class EncoderTest extends LinearOpMode {
 
@@ -44,7 +43,7 @@ public class EncoderTest extends LinearOpMode {
         // While the autonomous period is still active AND the robot has not reached the number
         // of encoder counts to travel 24 inches
 
-        robot.setDriveMotorPower(0.5, 0.50,0.5,0.5);
+        robot.setDriveMotorPower(0.5, 0.5,0.5,0.5);
 
         while(opModeIsActive()) {
             telemetry.addData("Status ", "opModeIsActive");

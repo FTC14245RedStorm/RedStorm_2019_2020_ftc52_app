@@ -58,20 +58,20 @@ public class  SnacktimeTeleop extends OpMode{
         boolean foundationDown = gamepad2.left_bumper;
         boolean foundationUp = gamepad2.right_bumper;
 
-        if (clawOpen == true) {
-            robot.setServoClawOpen();
-        }
-        if (clawClose == true) {
-            robot.setServoClawClosed();
-        }
-// one button opens the gripper, and one closes it
-
-        if (armUp == true) {
-            robot.setServoArmUp();
-        }
-        if (armDown == true) {
-            robot.setServoArmDown();
-        }
+//        if (clawOpen == true) {
+//            robot.setServoClawOpen();
+//        }
+//        if (clawClose == true) {
+//            robot.setServoClawClosed();
+//        }
+//// one button opens the gripper, and one closes it
+//
+//        if (armUp == true) {
+//            robot.setServoArmUp();
+//        }
+//        if (armDown == true) {
+//            robot.setServoArmDown();
+//        }
 
         if (foundationDown == true) {
             robot.setFoundationServosDown();

@@ -37,8 +37,8 @@ public class Robot {
 
     public Servo servoRight = null;
     public Servo servoLeft = null;
-    public Servo servoArm = null;
-    public Servo servoClaw = null;
+    //public Servo servoArm = null;
+    //public Servo servoClaw = null;
 
     public HardwareMap hardwareMap = null;
 
@@ -79,8 +79,8 @@ public class Robot {
         // Defines and initializes the servos
         servoRight = hwMap.get(Servo.class,"right_servo");
         servoLeft = hwMap.get(Servo.class,"left_servo");
-        servoArm = hwMap.get(Servo.class,"servo_arm");
-        servoClaw = hwMap.get(Servo.class,"servo_claw");
+        //servoArm = hwMap.get(Servo.class,"servo_arm");
+        //servoClaw = hwMap.get(Servo.class,"servo_claw");
 
 
         // Defines the directions the motors will spin, typically motors that
@@ -108,8 +108,8 @@ public class Robot {
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //Set servos to starting positions
-        setFoundationServosUp();
-        setServoClawClosed();
+        //setFoundationServosUp();
+        //setServoClawClosed();
 
 
         imu = hwMap.get(BNO055IMU.class, "imu");
@@ -162,8 +162,8 @@ public class Robot {
 
         frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
         frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frontLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
-        frontRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backLeftDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
+        backRightDrive.setMode(DcMotor.RunMode.RUN_USING_ENCODER);
     }
 
     /**
@@ -378,12 +378,17 @@ public class Robot {
         setFoundationServoRight(0.0);
     }
 
+    /*
+
     public void setServoArmUp () { servoArm.setPosition(0.2);}
     public void setServoArmDown () { servoArm.setPosition(0.58);}
 
     public void setServoClawOpen () { servoClaw.setPosition(1.0);}
     public void setServoClawClosed () { servoClaw.setPosition(0.0);}
 
+
+
+     */
 
     public void initializeIMU() {
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;
