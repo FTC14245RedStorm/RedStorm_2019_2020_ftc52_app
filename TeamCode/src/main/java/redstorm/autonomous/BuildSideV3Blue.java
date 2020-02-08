@@ -83,7 +83,7 @@ public class BuildSideV3Blue extends LinearOpMode {
         //turn left backwards 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.5, 1, 0.5, 1);
+        snacktime.setDriveMotorPower(-1, -0.75, -1, -0.75);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 90.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
