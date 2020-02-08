@@ -25,20 +25,23 @@ public class BuildSideV3Red extends LinearOpMode {
 
         double distanceToTravel;
         double startHeading;
-
+        double runToPosEncoderCount;
 
         // Wait for the start button to be pushed!
         waitForStart();
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateRTPEncoderCounts(30.0);
+
+        distanceToTravel = snacktime.calculateEncoderCounts(30);
+
+        runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(30.0);
 
         // Having the robot travel 30 inches
-        snacktime.setDTMotorPosition((int)distanceToTravel);
+        snacktime.setDTMotorPosition((int)runToPosEncoderCount);
         snacktime.setDriveMotorPower(1,1,1,1);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
+            telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
             telemetry.update();
         }
@@ -57,11 +60,14 @@ public class BuildSideV3Red extends LinearOpMode {
         // Pulling the foundation backwards 20 in.
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
-        distanceToTravel = snacktime.calculateRTPEncoderCounts(20.0);
+
+        distanceToTravel = snacktime.calculateEncoderCounts(20);
+
+        runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(20.0);
         snacktime.setDriveMotorPower(1, 1, 1, 1);
-        snacktime.setDTMotorPosition(-(int) distanceToTravel);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
+        snacktime.setDTMotorPosition(-(int) runToPosEncoderCount);
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
+            telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
             telemetry.update();
 
@@ -90,11 +96,14 @@ public class BuildSideV3Red extends LinearOpMode {
         // Go forwards 20 inches
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
+
+        distanceToTravel = snacktime.calculateEncoderCounts(20);
+
         distanceToTravel = snacktime.calculateRTPEncoderCounts(20);
         snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
-        snacktime.setDTMotorPosition((int)distanceToTravel);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
-            telemetry.addData("Distance To Travel: ", distanceToTravel);
+        snacktime.setDTMotorPosition((int)runToPosEncoderCount);
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
+            telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
             telemetry.update();
 
@@ -112,13 +121,16 @@ public class BuildSideV3Red extends LinearOpMode {
 
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
+
+        distanceToTravel = snacktime.calculateEncoderCounts(40);
+
         distanceToTravel = snacktime.calculateRTPEncoderCounts(40.0);
         snacktime.setDriveMotorPower(1, 1, 1, 1);
-        snacktime.setDTMotorPosition(-(int)distanceToTravel);
+        snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
-        while (opModeIsActive() && snacktime.getHue() < 150 && snacktime.getSortedEncoderCount() <= distanceToTravel) {
+        while (opModeIsActive() && snacktime.getHue() < 150 && snacktime.getSortedEncoderCount() <= runToPosEncoderCount) {
 
 
             telemetry.addData("Hue: ", snacktime.getHue());
