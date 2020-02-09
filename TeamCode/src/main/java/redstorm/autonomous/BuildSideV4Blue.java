@@ -37,7 +37,7 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        // Having the robot travel 30 inches
+        // Having the robot travel 34 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
         snacktime.setDriveMotorPower(0.75,0.75,0.75,0.75);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
@@ -57,11 +57,11 @@ public class BuildSideV4Blue extends LinearOpMode {
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
-        // Pulling the foundation backwards 20 in.
+        // Pulling the foundation backwards 32 in.
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
 
-        distanceToTravel = snacktime.calculateEncoderCounts(20);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(32);   // Calculate the number of encoders counts for 30inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
@@ -80,10 +80,9 @@ public class BuildSideV4Blue extends LinearOpMode {
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
 
-        //turn left backwards 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-1, -0.75, -1, -0.75);
+        snacktime.setDriveMotorPower(0.5, 1, 0.5, 1);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 90.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -92,28 +91,6 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         }
 
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-            // Go forwards 20 inches
-            snacktime.resetEncoders();
-            snacktime.runWithEncodersRTP();
-
-            distanceToTravel = snacktime.calculateEncoderCounts(20);   // Calculate the number of encoders counts for 30inches
-
-            runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
-
-            snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
-            snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-            while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
-                telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
-                telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
-                telemetry.update();
-
-            }
-
-        snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
-
-        // Putting servos up to let go of foundation
         snacktime.setFoundationServosUp();
         telemetry.addData("Letting Go of Foundation ", " foundation");
         telemetry.update();
@@ -124,11 +101,9 @@ public class BuildSideV4Blue extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
 
-        distanceToTravel = snacktime.calculateEncoderCounts(40);
+        distanceToTravel = snacktime.calculateEncoderCounts(48);
 
-        runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
-
-
+        runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(48.0);
         snacktime.setDriveMotorPower(1, 1, 1, 1);
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
         telemetry.addData("Hue: ", snacktime.getHue());
@@ -141,9 +116,6 @@ public class BuildSideV4Blue extends LinearOpMode {
             telemetry.update();
 
         }
-
-        snacktime.setDriveMotorPower(0.0,0.0, 0.0, 0.0);
-
 
     }
 
