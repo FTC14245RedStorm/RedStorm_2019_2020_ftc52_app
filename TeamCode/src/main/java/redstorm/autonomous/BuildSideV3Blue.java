@@ -33,13 +33,13 @@ public class BuildSideV3Blue extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(30);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(34);   // Calculate the number of encoders counts for 30inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
         // Having the robot travel 30 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(1,1,1,1);
+        snacktime.setDriveMotorPower(0.75,0.75,0.75,0.75);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -83,7 +83,7 @@ public class BuildSideV3Blue extends LinearOpMode {
         //turn left backwards 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.5, 1, 0.5, 1);
+        snacktime.setDriveMotorPower(-1, -0.75, -1, -0.75);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 90.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);

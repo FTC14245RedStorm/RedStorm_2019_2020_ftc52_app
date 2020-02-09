@@ -109,7 +109,7 @@ public class Robot {
         backRightDrive.setMode(DcMotor.RunMode.RUN_WITHOUT_ENCODER);
 
         //Set servos to starting positions
-        //setFoundationServosUp();
+        setFoundationServosUp();
         //setServoClawClosed();
 
 
