@@ -359,13 +359,10 @@ public class Robot {
      * @param leftBackMotorPower power setting for the left back motor
      * @param rightBackMotorPower power setting for the right back motor
      */
-    public void setTapeMotorMotorPower(double tapeMotorPower);{
+    public void setTapeMotorPower(double tapeMotorPower)    {
 
         /* Set the motor powers */
-        backLeftDrive.setPower(leftBackMotorPower);
-        backRightDrive.setPower(rightBackMotorPower);
-        frontLeftDrive.setPower(leftBackMotorPower);
-        frontRightDrive.setPower(rightBackMotorPower);
+        tapeMotor.setPower(tapeMotorPower);
     }
 
     /**
