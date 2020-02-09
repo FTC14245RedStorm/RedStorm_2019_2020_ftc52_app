@@ -72,7 +72,7 @@ public class Robot {
         frontRightDrive = hwMap.get(DcMotor.class, "front_right_motor");
         backLeftDrive = hwMap.get(DcMotor.class, "back_left_motor");
         backRightDrive = hwMap.get(DcMotor.class, "back_right_motor");
-
+        tapeMotor = hwMap.get(DcMotor.class, "tapeMotor");
 
         // Defines and initializes the color sensor
         colorSensor = hwMap.get(ColorSensor.class, "sensor_color_distance");
@@ -94,7 +94,7 @@ public class Robot {
         frontRightDrive.setDirection(DcMotor.Direction.FORWARD);
         backLeftDrive.setDirection(DcMotor.Direction.REVERSE);
         backRightDrive.setDirection(DcMotor.Direction.FORWARD);
-
+        tapeMotor.setDirection(DcMotor.Direction.REVERSE);
 
         // Set all motors to zero power
         frontLeftDrive.setPower(0);

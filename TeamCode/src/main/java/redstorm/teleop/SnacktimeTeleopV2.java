@@ -74,7 +74,7 @@ public class SnacktimeTeleopV2 extends OpMode{
         /* Set the motor power for the robot.
          */
         robot.setDriveMotorPower(left, right, left, right);
-        robot.settapeMotorPower(tapeMotor);
+        robot.setTapeMotorPower(tapeMotor);
 
         if (foundationDown == true) {
             robot.setFoundationServosDown();
