@@ -51,6 +51,10 @@ public class SnacktimeTeleopV2 extends OpMode{
 
         double left  = -gamepad1.left_stick_y;
         double right = -gamepad1.right_stick_y;
+        double tapeMotor = -gamepad2.left_stick_y;
+
+        tapeMotor = Range.clip(left, -1, 1);
+        tapeMotor = Range.clip(right, -1, 1);
 
         /* Insure that the values from the gamepad for left and right will
            always be between -1.0 and 1.0.  This is done since motor powers

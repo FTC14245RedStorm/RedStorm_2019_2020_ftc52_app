@@ -31,6 +31,7 @@ public class Robot {
     public DcMotor backLeftDrive = null;
     public DcMotor frontRightDrive = null;
     public DcMotor frontLeftDrive = null;
+    public DcMotor tapeMotor = null;
 
     public BNO055IMU imu = null;
     public ColorSensor colorSensor = null;
