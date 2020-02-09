@@ -354,6 +354,21 @@ public class Robot {
     }
 
     /**
+     * This method will set the power for the drive motors
+     *
+     * @param leftBackMotorPower power setting for the left back motor
+     * @param rightBackMotorPower power setting for the right back motor
+     */
+    public void setTapeMotorMotorPower(double tapeMotorPower);{
+
+        /* Set the motor powers */
+        backLeftDrive.setPower(leftBackMotorPower);
+        backRightDrive.setPower(rightBackMotorPower);
+        frontLeftDrive.setPower(leftBackMotorPower);
+        frontRightDrive.setPower(rightBackMotorPower);
+    }
+
+    /**
      * this method sets the position of the right servo
      * @param position
      */
