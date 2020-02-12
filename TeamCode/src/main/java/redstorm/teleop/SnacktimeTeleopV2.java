@@ -51,6 +51,12 @@ public class SnacktimeTeleopV2 extends OpMode{
 
         double left  = -gamepad1.left_stick_y;
         double right = -gamepad1.right_stick_y;
+
+        boolean clawOpen = gamepad2.a;
+        boolean clawClose = gamepad2.b;
+        boolean armUp = gamepad2.x;
+        boolean armDown = gamepad2.y;
+
         double tapeMotor = -gamepad2.left_stick_y;
         double lift = -gamepad2.right_stick_y;
 
@@ -85,6 +91,21 @@ public class SnacktimeTeleopV2 extends OpMode{
 
         if (foundationUp == true) {
             robot.setFoundationServosUp();
+        }
+
+        if (clawOpen == true) {
+            robot.setServoClawOpen();
+        }
+        if (clawClose == true) {
+            robot.setServoClawClosed();
+        }
+// one button opens the gripper, and one closes it
+
+        if (armUp == true) {
+            robot.setServoArmUp();
+        }
+        if (armDown == true) {
+            robot.setServoArmDown();
         }
 
         // setting lift power for the robot
