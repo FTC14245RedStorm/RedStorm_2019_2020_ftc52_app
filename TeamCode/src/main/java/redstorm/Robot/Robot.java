@@ -32,14 +32,15 @@ public class Robot {
     public DcMotor frontRightDrive = null;
     public DcMotor frontLeftDrive = null;
     public DcMotor tapeMotor = null;
+    public DcMotor liftMotor = null;
 
     public BNO055IMU imu = null;
     public ColorSensor colorSensor = null;
 
     public Servo servoRight = null;
     public Servo servoLeft = null;
-    //public Servo servoArm = null;
-    //public Servo servoClaw = null;
+    public Servo servoArm = null;
+    public Servo servoClaw = null;
 
     public HardwareMap hardwareMap = null;
 
@@ -73,6 +74,7 @@ public class Robot {
         backLeftDrive = hwMap.get(DcMotor.class, "back_left_motor");
         backRightDrive = hwMap.get(DcMotor.class, "back_right_motor");
         tapeMotor = hwMap.get(DcMotor.class, "tapeMotor");
+        liftMotor = hwMap.get(DcMotor.class, "liftMotor");
 
         // Defines and initializes the color sensor
         colorSensor = hwMap.get(ColorSensor.class, "sensor_color_distance");
@@ -80,8 +82,8 @@ public class Robot {
         // Defines and initializes the servos
         servoRight = hwMap.get(Servo.class,"right_servo");
         servoLeft = hwMap.get(Servo.class,"left_servo");
-        //servoArm = hwMap.get(Servo.class,"servo_arm");
-        //servoClaw = hwMap.get(Servo.class,"servo_claw");
+        servoArm = hwMap.get(Servo.class,"servo_arm");
+        servoClaw = hwMap.get(Servo.class,"servo_claw");
 
 
         // Defines the directions the motors will spin, typically motors that
@@ -110,7 +112,7 @@ public class Robot {
 
         //Set servos to starting positions
         setFoundationServosUp();
-        //setServoClawClosed();
+        setServoClawClosed();
 
 
         imu = hwMap.get(BNO055IMU.class, "imu");
@@ -354,15 +356,28 @@ public class Robot {
     }
 
     /**
-     * This method will set the power for the drive motors
+     * This method will set the power for the tape motors
      *
-     * @param leftBackMotorPower power setting for the left back motor
-     * @param rightBackMotorPower power setting for the right back motor
+     * @param tapeMotorPower power setting for the left back motor
      */
     public void setTapeMotorPower(double tapeMotorPower)    {
 
         /* Set the motor powers */
         tapeMotor.setPower(tapeMotorPower);
+    }
+
+    /**
+     *
+     * This method will set the power for the lift motor
+     *
+     * @param liftMotorPower
+     */
+
+    public void setLiftMotorPower(double liftMotorPower) {
+
+        // Set lift motor power
+
+        liftMotor.setPower(liftMotorPower);
     }
 
     /**
@@ -391,7 +406,6 @@ public class Robot {
         setFoundationServoRight(0.0);
     }
 
-    /*
 
     public void setServoArmUp () { servoArm.setPosition(0.2);}
     public void setServoArmDown () { servoArm.setPosition(0.58);}
@@ -400,8 +414,6 @@ public class Robot {
     public void setServoClawClosed () { servoClaw.setPosition(0.0);}
 
 
-
-     */
 
     public void initializeIMU() {
         parameters.angleUnit = BNO055IMU.AngleUnit.DEGREES;

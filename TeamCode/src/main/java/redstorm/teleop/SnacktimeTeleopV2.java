@@ -52,6 +52,7 @@ public class SnacktimeTeleopV2 extends OpMode{
         double left  = -gamepad1.left_stick_y;
         double right = -gamepad1.right_stick_y;
         double tapeMotor = -gamepad2.left_stick_y;
+        double lift = -gamepad2.right_stick_y;
 
         tapeMotor = Range.clip(tapeMotor, -1, 1);
 
@@ -69,12 +70,14 @@ public class SnacktimeTeleopV2 extends OpMode{
         left  = smoothPower(left);
         right = smoothPower(right);
         tapeMotor = smoothPower(tapeMotor);
-      //  lift = smoothPower(lift * .75);
+        lift = smoothPower(lift);
+
         // making power less for remote
         /* Set the motor power for the robot.
          */
         robot.setDriveMotorPower(left, right, left, right);
         robot.setTapeMotorPower(tapeMotor);
+        robot.setLiftMotorPower(lift);
 
         if (foundationDown == true) {
             robot.setFoundationServosDown();
