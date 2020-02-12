@@ -77,6 +77,12 @@ public class BuildSideV4Blue extends LinearOpMode {
         snacktime.setDriveMotorPower(0,0, 0, 0);
         // Let go of the foundation
 
+        snacktime.setFoundationServosUp();
+        telemetry.addData("Latching on to", " foundation");
+        telemetry.update();
+        Thread.sleep( 500);    // Need some time to let the servos get into position
+
+
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
 
