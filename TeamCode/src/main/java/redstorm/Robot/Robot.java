@@ -62,7 +62,7 @@ public class Robot {
      *
      * @param ahwMap hardware map for the robot
      */
-    public void     initialize(HardwareMap ahwMap) {
+    public void initialize(HardwareMap ahwMap) {
 
         // Save reference to hardware map
         hwMap = ahwMap;
@@ -113,6 +113,7 @@ public class Robot {
         //Set servos to starting positions
         setFoundationServosUp();
         setServoClawClosed();
+        setServoArmUp();
 
 
         imu = hwMap.get(BNO055IMU.class, "imu");
@@ -408,7 +409,7 @@ public class Robot {
 
 
     public void setServoArmUp () { servoArm.setPosition(0.2);}
-    public void setServoArmDown () { servoArm.setPosition(0.58);}
+    public void setServoArmDown () { servoArm.setPosition(0.75);}
 
     public void setServoClawOpen () { servoClaw.setPosition(1.0);}
     public void setServoClawClosed () { servoClaw.setPosition(0.0);}

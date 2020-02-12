@@ -102,11 +102,15 @@ public class SnacktimeTeleopV2 extends OpMode{
 // one button opens the gripper, and one closes it
 
         if (armUp == true) {
+            telemetry.addLine("servo arm up");
             robot.setServoArmUp();
         }
         if (armDown == true) {
+            telemetry.addLine("servo arm down");
             robot.setServoArmDown();
         }
+
+        telemetry.update();
 
         // setting lift power for the robot
 
