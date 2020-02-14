@@ -57,15 +57,15 @@ public class BuildSideV4Blue extends LinearOpMode {
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
-        // Pulling the foundation backwards 54 in.
+        // Pulling the foundation backwards 30 in.
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
 
-        distanceToTravel = snacktime.calculateEncoderCounts(54);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(30);   // Calculate the number of encoders counts for 30inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        snacktime.setDriveMotorPower(1.0, .75, 1.0, .75);
+        snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
         snacktime.setDTMotorPosition(-(int) runToPosEncoderCount);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
@@ -77,11 +77,24 @@ public class BuildSideV4Blue extends LinearOpMode {
         snacktime.setDriveMotorPower(0,0, 0, 0);
         // Let go of the foundation
 
-        snacktime.setFoundationServosUp();
+        //snacktime.setFoundationServosUp();
+        snacktime.setFoundationServoRight(1.0);
         telemetry.addData("Latching on to", " foundation");
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
+        distanceToTravel = snacktime.calculateEncoderCounts(30);   // Calculate the number of encoders counts for 30inches
+
+        runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
+
+        snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
+        snacktime.setDTMotorPosition(-(int) runToPosEncoderCount);
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
+            telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
+            telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
+            telemetry.update();
+
+        }
 
         // find the line and stop
 
