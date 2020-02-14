@@ -71,6 +71,9 @@ public class BuildSideV4Blue extends LinearOpMode {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
             telemetry.update();
+            if (snacktime.getSortedEncoderCount() > runToPosEncoderCount-5) {
+                snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
+            }
 
         }
 
