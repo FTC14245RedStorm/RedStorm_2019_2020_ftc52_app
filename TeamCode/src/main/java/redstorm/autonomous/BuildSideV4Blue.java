@@ -78,7 +78,7 @@ public class BuildSideV4Blue extends LinearOpMode {
         // Let go of the foundation
 
         //snacktime.setFoundationServosUp();
-        snacktime.setFoundationServoRight(1.0);
+        snacktime.setFoundationServoRight(0.0);
         telemetry.addData("Latching on to", " foundation");
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
