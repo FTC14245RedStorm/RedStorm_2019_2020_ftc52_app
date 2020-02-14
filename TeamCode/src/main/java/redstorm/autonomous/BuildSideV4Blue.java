@@ -52,7 +52,7 @@ public class BuildSideV4Blue extends LinearOpMode {
         telemetry.update();
 
         // Putting servos down to latch onto foundation
-        snacktime.setFoundationServosDown();
+        snacktime.setFoundationServoRight(1.0);
         telemetry.addData("Latching on to", " foundation");
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
@@ -78,10 +78,10 @@ public class BuildSideV4Blue extends LinearOpMode {
         // Let go of the foundation
 
         //snacktime.setFoundationServosUp();
-        snacktime.setFoundationServoRight(0.0);
-        telemetry.addData("Latching on to", " foundation");
-        telemetry.update();
-        Thread.sleep( 500);    // Need some time to let the servos get into position
+       // snacktime.setFoundationServoRight(0.0);
+      //  telemetry.addData("Latching on to", " foundation");
+//        telemetry.update();
+//        Thread.sleep( 500);    // Need some time to let the servos get into position
 
         distanceToTravel = snacktime.calculateEncoderCounts(30);   // Calculate the number of encoders counts for 30inches
 
