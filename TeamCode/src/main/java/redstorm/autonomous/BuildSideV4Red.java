@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="BuildSideV4Blue")
+@Autonomous(name="BuildSideV4Red")
 
 
 public class BuildSideV4Red extends LinearOpMode {
@@ -37,7 +37,7 @@ public class BuildSideV4Red extends LinearOpMode {
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        // Having the robot travel 34 inches
+        // Having the robot travel 38 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
         snacktime.setDriveMotorPower(0.75,0.75,0.75,0.75);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
@@ -65,7 +65,7 @@ public class BuildSideV4Red extends LinearOpMode {
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        snacktime.setDriveMotorPower(1.0, 0.50, 1.0, 0.50);
+        snacktime.setDriveMotorPower(0.50, 1.0, 0.50, 1.0);
         snacktime.setDTMotorPosition(-(int) runToPosEncoderCount);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
@@ -81,7 +81,7 @@ public class BuildSideV4Red extends LinearOpMode {
 //         Let go of the foundation
 
         snacktime.setFoundationServosUp();
- //       snacktime.setFoundationServoRight(0.0);
+ //       snacktime.setFoundationServoLeft(1.0);
         telemetry.addData("Latching on to", " foundation");
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
