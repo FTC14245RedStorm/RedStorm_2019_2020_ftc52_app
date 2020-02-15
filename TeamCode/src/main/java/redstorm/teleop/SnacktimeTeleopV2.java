@@ -49,6 +49,7 @@ public class SnacktimeTeleopV2 extends OpMode{
         boolean foundationDown = gamepad2.left_bumper;
         boolean foundationUp = gamepad2.right_bumper;
 
+
         double left  = -gamepad1.left_stick_y;
         double right = -gamepad1.right_stick_y;
 
