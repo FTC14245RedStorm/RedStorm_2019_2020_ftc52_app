@@ -84,7 +84,7 @@ public class BuildSideV4Red extends LinearOpMode {
 // //       snacktime.setFoundationServoLeft(1.0);
 //        telemetry.addData("Latching on to", " foundation");
 //        telemetry.update();
-//        Thread.sleep( 500);    // Need some time to let the servos get into position
+//        Thread.sleep( 500);    / Need some time to let the servos get into position
 
         snacktime.resetEncoders();
         snacktime.runWithEncoders();
