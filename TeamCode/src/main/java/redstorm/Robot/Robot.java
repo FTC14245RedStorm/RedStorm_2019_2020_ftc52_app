@@ -27,10 +27,10 @@ import static redstorm.Constants.RobotConstants.COLOR_SENSOR_SCALE_FACTOR;
 public class Robot {
 
     public HardwareMap hwMap = null;
-    public DcMotor backRightDrive = null;
     public DcMotor backLeftDrive = null;
-    public DcMotor frontRightDrive = null;
+    public DcMotor backRightDrive = null;
     public DcMotor frontLeftDrive = null;
+    public DcMotor frontRightDrive = null;
     public DcMotor tapeMotor = null;
     public DcMotor liftMotor = null;
 
@@ -344,16 +344,18 @@ public class Robot {
     /**
      * This method will set the power for the drive motors
      *
-     * @param leftBackMotorPower power setting for the left back motor
-     * @param rightBackMotorPower power setting for the right back motor
+     * @param backLeftMotorPower power setting for the back left motor
+     * @param backRightMotorPower power setting for the back right motor
+     * @param frontLeftMotorPower power setting for the front left motor
+     * @param frontRightMotorPower power setting for the front right motor
      */
-    public void setDriveMotorPower(double leftBackMotorPower, double rightBackMotorPower, double frontLeftMotorPower, double frontRightMotorPower){
+    public void setDriveMotorPower(double backLeftMotorPower, double backRightMotorPower, double frontLeftMotorPower, double frontRightMotorPower){
 
         /* Set the motor powers */
-        backLeftDrive.setPower(leftBackMotorPower);
-        backRightDrive.setPower(rightBackMotorPower);
-        frontLeftDrive.setPower(leftBackMotorPower);
-        frontRightDrive.setPower(rightBackMotorPower);
+        backLeftDrive.setPower(backLeftMotorPower);
+        backRightDrive.setPower(backRightMotorPower);
+        frontLeftDrive.setPower(frontLeftMotorPower);
+        frontRightDrive.setPower(frontRightMotorPower);
     }
 
     /**
