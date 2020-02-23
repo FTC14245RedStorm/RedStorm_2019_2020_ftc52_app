@@ -58,11 +58,11 @@ public class BuildSideV4Blue extends LinearOpMode {
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
-        // Pulling the foundation backwards 95 in.
+        // Pulling the foundation backwards 85 in.
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
 
-        distanceToTravel = snacktime.calculateEncoderCounts(95);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(85);   // Calculate the number of encoders counts for 30inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
@@ -124,10 +124,15 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.0, -0.5, 0.0, -0.5);
+        snacktime.setDriveMotorPower(0.5, 0.0, 0.5, 0.0);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 15.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
+            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
+            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
+            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
+            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
+            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
 
