@@ -66,8 +66,8 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        snacktime.setDriveMotorPower(1.0, 0.50, 1.0, 0.50);
         snacktime.setDTMotorPosition(-(int) runToPosEncoderCount);
+        snacktime.setDriveMotorPower(1.0, 0.50, 1.0, 0.50);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount-5) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -94,8 +94,8 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
+        snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -110,8 +110,8 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        snacktime.setDriveMotorPower(-0.5, -0.5, -0.5, -0.5);
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
+        snacktime.setDriveMotorPower(-0.5, -0.5, -0.5, -0.5);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -122,7 +122,7 @@ public class BuildSideV4Blue extends LinearOpMode {
         snacktime.setDriveMotorPower(0,0,0,0);
 
         snacktime.resetEncoders();
-        //snacktime.runWithEncoders();
+        snacktime.runWithoutEncoders();
 
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
@@ -150,8 +150,9 @@ public class BuildSideV4Blue extends LinearOpMode {
         distanceToTravel = snacktime.calculateEncoderCounts(48);
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
-        snacktime.setDriveMotorPower(1.0,1.0, 1.0, 1.0);
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
+        snacktime.setDriveMotorPower(1.0,1.0, 1.0, 1.0);
+
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
