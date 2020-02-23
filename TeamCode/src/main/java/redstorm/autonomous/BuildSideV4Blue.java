@@ -53,6 +53,7 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         // Putting servos down to latch onto foundation
         snacktime.setFoundationServoRight(1.0);
+        //snacktime.setFoundationServosDown();
         telemetry.addData("Latching on to", " foundation");
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
@@ -67,13 +68,13 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         snacktime.setDriveMotorPower(1.0, 0.50, 1.0, 0.50);
         snacktime.setDTMotorPosition(-(int) runToPosEncoderCount);
-        while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount-5) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
             telemetry.update();
-            if (snacktime.getSortedEncoderCount() > runToPosEncoderCount-5) {
-                snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
-            }
+//            if (snacktime.getSortedEncoderCount() > runToPosEncoderCount-5) {
+//                snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
+//            }
 
         }
 
@@ -82,14 +83,14 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         snacktime.setFoundationServosUp();
  //       snacktime.setFoundationServoRight(0.0);
-        telemetry.addData("Latching on to", " foundation");
+        telemetry.addData("Latching off of", " foundation");
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
 
-        distanceToTravel = snacktime.calculateEncoderCounts(30);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(40);   // Calculate the number of encoders counts for 30inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
@@ -101,6 +102,38 @@ public class BuildSideV4Blue extends LinearOpMode {
             telemetry.update();
 
         }
+
+        snacktime.resetEncoders();
+        snacktime.runWithEncodersRTP();
+
+        distanceToTravel = snacktime.calculateEncoderCounts(2);   // Calculate the number of encoders counts for 30inches
+
+        runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
+
+        snacktime.setDriveMotorPower(-0.5, -0.5, -0.5, -0.5);
+        snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
+            telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
+            telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
+            telemetry.update();
+
+        }
+
+        snacktime.resetEncoders();
+        snacktime.runWithEncoders();
+
+        snacktime.initializeIMU();
+        startHeading = snacktime.getHeading();
+        snacktime.setDriveMotorPower(0.5, -0.5, 0.5, -0.5);
+        while (opModeIsActive() &&
+                snacktime.getHeading() < 30.0) {
+            telemetry.addData("Starting heading: ", "%5.2f", startHeading);
+            telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
+            telemetry.update();
+
+        }
+        snacktime.setDriveMotorPower(0.0,0.0,0.0,0.0);
+
 
         // find the line and stop
 

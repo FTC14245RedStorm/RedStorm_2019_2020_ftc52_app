@@ -93,7 +93,6 @@ public class BuildSideV4Red extends LinearOpMode {
 
         }
         snacktime.setDriveMotorPower(0.0,0.0,0.0,0.0);
-        // find the line and stop
 
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
@@ -124,6 +123,9 @@ public class BuildSideV4Red extends LinearOpMode {
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
+
+        // find the line and stop
+
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
 
@@ -142,6 +144,28 @@ public class BuildSideV4Red extends LinearOpMode {
             telemetry.update();
 
         }
+
+        snacktime.setDriveMotorPower(0,0,0,0);
+
+        snacktime.resetEncoders();                     // Reset the encoder counts
+        snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
+        distanceToTravel = snacktime.calculateEncoderCounts(3);   // Calculate the number of encoders counts for 30inches
+
+        runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
+
+        // Having the robot travel 3 inches
+        snacktime.setDTMotorPosition((int)runToPosEncoderCount);
+        snacktime.setDriveMotorPower(0.5,0.5,0.5,0.5);
+        while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
+            telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
+            telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
+            telemetry.update();
+        }
+
+        snacktime.setDriveMotorPower(0.0,0.0, 0.0, 0.0);
+
+        telemetry.addData("Stopping", " Motors");
+        telemetry.update();
 
     }
 
