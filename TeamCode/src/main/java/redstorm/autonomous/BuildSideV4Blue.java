@@ -119,6 +119,8 @@ public class BuildSideV4Blue extends LinearOpMode {
 
         }
 
+        snacktime.setDriveMotorPower(0,0,0,0);
+
         snacktime.resetEncoders();
         //snacktime.runWithEncoders();
 
