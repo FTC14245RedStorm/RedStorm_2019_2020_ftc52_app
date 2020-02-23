@@ -126,7 +126,7 @@ public class BuildSideV4Blue extends LinearOpMode {
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(0.5, -0.5, 0.5, -0.5);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 30.0) {
+                snacktime.getHeading() < -15.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
