@@ -70,6 +70,7 @@ public class Robot {
         // Save reference to hardware map
         hwMap = ahwMap;
 
+
         // Define and initialize motors, the names here are what appears
         // in the configuration file on the Robot Controller/Driver Station
         frontLeftDrive = hwMap.get(DcMotor.class, "front_left_motor");
