@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="Drive 2 Feet")
+@Autonomous(name="Drive 2 Feet Delayed")
 
 public class driveTwoFeetDelayed extends LinearOpMode {
 
