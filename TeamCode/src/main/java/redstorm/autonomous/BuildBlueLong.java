@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="Red, Load Side, Long Distance")
+@Autonomous(name="BuildBlueLong")
 
 public class BuildBlueLong extends LinearOpMode {
 
@@ -31,7 +31,7 @@ public class BuildBlueLong extends LinearOpMode {
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
         distanceToTravel = snacktime.calculateEncoderCounts(28.0);
-        snacktime.setDriveMotorPower(0.5, 0.5,0.5,0.5);
+        snacktime.setDriveMotorPower(1.0, 1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -41,12 +41,12 @@ public class BuildBlueLong extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0.0, 0.0,0.0,0.0);
 
-        //turn right 78 degrees
+        //turn right 83 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.20, -0.20,0.20,-0.20);
+        snacktime.setDriveMotorPower(1.0, -1.0,1.0,-1.0);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 78.0) {
+                snacktime.getHeading() < 83.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
