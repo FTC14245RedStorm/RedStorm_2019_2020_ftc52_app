@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="Blue, Load Side, Long Distance")
+@Autonomous(name="buildRedLong")
 
 public class BuildRedLong extends LinearOpMode {
 
