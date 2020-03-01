@@ -29,6 +29,7 @@
 
 package redstorm.teleop;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
@@ -50,6 +51,7 @@ import redstorm.Robot.Robot;
  */
 
 @TeleOp(name="First Teleop", group="Teleop")
+@Disabled
 
 public class FirstTeleop extends OpMode{
 
