@@ -139,7 +139,7 @@ public class TwoStoneRedSide extends LinearOpMode {
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-0.50, 0.50, -0.50, 0.50);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 80.0) {
+                snacktime.getHeading() < 85.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -149,11 +149,11 @@ public class TwoStoneRedSide extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(6);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(8);   // Calculate the number of encoders counts for 30inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        // Having the robot travel 6 inches
+        // Having the robot travel 8 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
         snacktime.setDriveMotorPower(0.5,0.5,0.5,0.5);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
@@ -165,6 +165,7 @@ public class TwoStoneRedSide extends LinearOpMode {
         snacktime.setDriveMotorPower(0.0,0.0, 0.0, 0.0);
 
         snacktime.setServoClawClosed();
+        Thread.sleep(500);    // Need some time to let the servos get into position
         snacktime.setServoArmMid();
 
         snacktime.resetEncoders();                     // Reset the encoder counts
@@ -189,12 +190,12 @@ public class TwoStoneRedSide extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithoutEncoders();
 
-        //turn right 90 degrees
+        //turn right 74 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(0.50, -0.50, 0.50, -0.50);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 80.0) {
+                snacktime.getHeading() < 74.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -204,13 +205,13 @@ public class TwoStoneRedSide extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(90);   // Calculate the number of encoders counts for 60 inches
+        distanceToTravel = snacktime.calculateEncoderCounts(75);   // Calculate the number of encoders counts for 60 inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        // Having the robot travel 90 inches
+        // Having the robot travel 75 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.75,0.75,0.75,0.75);
+        snacktime.setDriveMotorPower(1.00,1.00,1.00,1.00);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
