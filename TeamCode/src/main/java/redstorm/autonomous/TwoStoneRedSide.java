@@ -137,9 +137,9 @@ public class TwoStoneRedSide extends LinearOpMode {
         //turn left 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.50, -0.50, 0.50, -0.50);
+        snacktime.setDriveMotorPower(-0.50, 0.50, -0.50, 0.50);
         while (opModeIsActive() &&
-                snacktime.getHeading() > 80.0) {
+                snacktime.getHeading() < 80.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
