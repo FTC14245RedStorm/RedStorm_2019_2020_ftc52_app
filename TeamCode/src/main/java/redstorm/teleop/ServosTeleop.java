@@ -1,11 +1,13 @@
 package redstorm.teleop;
 
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.OpMode;
 import com.qualcomm.robotcore.eventloop.opmode.TeleOp;
 
 import redstorm.Robot.Robot;
 
 @TeleOp(name = "ServosTeleop", group = "Teleop")
+@Disabled
 
 public class ServosTeleop extends OpMode{
     public Robot snacktime = new Robot();
