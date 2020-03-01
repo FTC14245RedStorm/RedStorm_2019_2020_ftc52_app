@@ -129,6 +129,11 @@ public class TwoStoneRedSide extends LinearOpMode {
 
         snacktime.setDriveMotorPower(0,0,0,0);
 
+        telemetry.addData("Stopping", " Motors");
+        telemetry.update();
+        snacktime.resetEncoders();
+        snacktime.runWithoutEncoders();
+
         //turn left 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
@@ -178,6 +183,11 @@ public class TwoStoneRedSide extends LinearOpMode {
         }
 
         snacktime.setDriveMotorPower(0,0,0,0);
+
+        telemetry.addData("Stopping", " Motors");
+        telemetry.update();
+        snacktime.resetEncoders();
+        snacktime.runWithoutEncoders();
 
         //turn right 90 degrees
         snacktime.initializeIMU();
