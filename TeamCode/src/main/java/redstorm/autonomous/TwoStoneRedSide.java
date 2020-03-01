@@ -94,7 +94,7 @@ public class TwoStoneRedSide extends LinearOpMode {
 
         // Having the robot travel 50 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.75,0.75,0.75,0.75);
+        snacktime.setDriveMotorPower(0.90,0.90,0.90,0.90);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -120,7 +120,7 @@ public class TwoStoneRedSide extends LinearOpMode {
 
         // Having the robot travel backwards 72 inches
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.75,0.75,0.75,0.75);
+        snacktime.setDriveMotorPower(0.90,0.90,0.90,0.90);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -137,7 +137,7 @@ public class TwoStoneRedSide extends LinearOpMode {
         //turn left 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.50, 0.50, -0.50, 0.50);
+        snacktime.setDriveMotorPower(0.50, -0.50, 0.50, -0.50);
         while (opModeIsActive() &&
                 snacktime.getHeading() > 80.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
