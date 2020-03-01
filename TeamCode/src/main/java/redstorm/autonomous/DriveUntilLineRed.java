@@ -5,9 +5,9 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="DriveUntilLine")
+@Autonomous(name="DriveUntilLineRed")
 
-public class DriveUntilLine extends LinearOpMode {
+public class DriveUntilLineRed extends LinearOpMode {
 
     public Robot snacktime = new Robot();    // Create a new instance of the robot
 
@@ -27,6 +27,9 @@ public class DriveUntilLine extends LinearOpMode {
         // Wait for the start button to be pushed!
         waitForStart();
 
+        snacktime.setServoArmDown();
+
+        Thread.sleep(25000);
 
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
@@ -39,7 +42,7 @@ public class DriveUntilLine extends LinearOpMode {
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
-        while (opModeIsActive() && snacktime.getHue() < 150 && snacktime.getSortedEncoderCount() <= runToPosEncoderCount) {
+        while (opModeIsActive() && snacktime.getHue() > 10 && snacktime.getSortedEncoderCount() <= runToPosEncoderCount) {
 
 
             telemetry.addData("Hue: ", snacktime.getHue());

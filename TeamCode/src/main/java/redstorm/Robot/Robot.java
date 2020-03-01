@@ -414,9 +414,9 @@ public class Robot {
     }
 
 
-    public void setServoArmUp () { servoArm.setPosition(0.3);}
+    public void setServoArmUp () { servoArm.setPosition(0.1);}
     public void setServoArmDown () { servoArm.setPosition(1.0);}
-
+    public void setServoArmMid () { servoArm.setPosition(0.6);}
     public void setServoClawOpen () { servoClaw.setPosition(1.0);}
     public void setServoClawClosed () { servoClaw.setPosition(0.0);}
 

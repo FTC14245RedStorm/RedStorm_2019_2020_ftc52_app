@@ -104,7 +104,7 @@ public class SnacktimeTeleopV2 extends OpMode{
 
         if (armUp == true) {
             telemetry.addLine("servo arm up");
-            robot.setServoArmUp();
+            robot.setServoArmMid();
         }
         if (armDown == true) {
             telemetry.addLine("servo arm down");

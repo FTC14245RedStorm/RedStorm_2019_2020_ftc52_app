@@ -33,11 +33,11 @@ public class BuildSideV4Red extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(44);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(40);   // Calculate the number of encoders counts for 30inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        // Having the robot travel 44 inches
+        // Having the robot travel 40 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
         snacktime.setDriveMotorPower(0.75,0.75,0.75,0.75);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
@@ -57,15 +57,15 @@ public class BuildSideV4Red extends LinearOpMode {
         telemetry.update();
         Thread.sleep( 500);    // Need some time to let the servos get into position
 
-        // Pulling the foundation backwards 50 in.
+        // Pulling the foundation backwards 45 in.
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
 
-        distanceToTravel = snacktime.calculateEncoderCounts(50);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(45);   // Calculate the number of encoders counts for 45 inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
+        snacktime.setDriveMotorPower(0.75, 1.0, 0.75, 1.0);
         snacktime.setDTMotorPosition(-(int) runToPosEncoderCount);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
@@ -86,7 +86,7 @@ public class BuildSideV4Red extends LinearOpMode {
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(0.5, -0.5, 0.5, -0.5);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 60.0) {
+                snacktime.getHeading() < 68.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -97,7 +97,13 @@ public class BuildSideV4Red extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
 
-        distanceToTravel = snacktime.calculateEncoderCounts(14);   // Calculate the number of encoders counts for 30inches
+        snacktime.setFoundationServosUp();
+        //       snacktime.setFoundationServoLeft(1.0);
+        telemetry.addData("Latching on to", " foundation");
+        telemetry.update();
+        Thread.sleep( 500);    // Need some time to let the servos get into position
+
+        distanceToTravel = snacktime.calculateEncoderCounts(16);   // Calculate the number of encoders counts for 16 inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
@@ -117,11 +123,11 @@ public class BuildSideV4Red extends LinearOpMode {
 
         //         Let go of the foundation
 
-        snacktime.setFoundationServosUp();
+    //    snacktime.setFoundationServosUp();
  //       snacktime.setFoundationServoLeft(1.0);
-        telemetry.addData("Latching on to", " foundation");
-        telemetry.update();
-        Thread.sleep( 500);    // Need some time to let the servos get into position
+   //     telemetry.addData("Latching on to", " foundation");
+   //     telemetry.update();
+   //     Thread.sleep( 500);    // Need some time to let the servos get into position
 
 
         // find the line and stop
@@ -137,7 +143,7 @@ public class BuildSideV4Red extends LinearOpMode {
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
-        while (opModeIsActive() && snacktime.getHue() < 150 && snacktime.getSortedEncoderCount() <= runToPosEncoderCount) {
+        while (opModeIsActive() && snacktime.getHue() < 10 && snacktime.getSortedEncoderCount() <= runToPosEncoderCount) {
 
 
             telemetry.addData("Hue: ", snacktime.getHue());
