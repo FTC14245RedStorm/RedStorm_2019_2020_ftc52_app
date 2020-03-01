@@ -133,12 +133,9 @@ public class BuildSideV4Red extends LinearOpMode {
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
 
-        while (opModeIsActive() && snacktime.getHue() < 10 && snacktime.getSortedEncoderCount() <= runToPosEncoderCount) {
-
-
+        while (opModeIsActive() && snacktime.getHue() > 10 && snacktime.getSortedEncoderCount() <= runToPosEncoderCount) {
             telemetry.addData("Hue: ", snacktime.getHue());
             telemetry.update();
-
         }
 
         snacktime.setDriveMotorPower(0,0,0,0);
