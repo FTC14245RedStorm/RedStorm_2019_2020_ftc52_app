@@ -119,26 +119,16 @@ public class BuildSideV4Red extends LinearOpMode {
 
         }
 
-
-
-        //         Let go of the foundation
-
-    //    snacktime.setFoundationServosUp();
- //       snacktime.setFoundationServoLeft(1.0);
-   //     telemetry.addData("Latching on to", " foundation");
-   //     telemetry.update();
-   //     Thread.sleep( 500);    // Need some time to let the servos get into position
-
-
         // find the line and stop
 
+        snacktime.setDriveMotorPower(0.0,0.0,0.0,0.0);
         snacktime.resetEncoders();
         snacktime.runWithEncodersRTP();
 
         distanceToTravel = snacktime.calculateEncoderCounts(48);
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
-        snacktime.setDriveMotorPower(1.0,1.0, 1.0, 1.0);
+        snacktime.setDriveMotorPower(-1.0,-1.0, -1.0, -1.0);
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();

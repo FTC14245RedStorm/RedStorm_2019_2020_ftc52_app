@@ -7,7 +7,7 @@ import redstorm.Robot.Robot;
 
 @Autonomous(name="StoneRedSide")
 
-public class loadRedLong extends LinearOpMode {
+public class StoneRedSide extends LinearOpMode {
 
     public Robot snacktime = new Robot();    // Create a new instance of the robot
 
