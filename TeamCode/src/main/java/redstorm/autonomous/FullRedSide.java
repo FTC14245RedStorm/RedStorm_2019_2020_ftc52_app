@@ -286,7 +286,7 @@ public class FullRedSide extends LinearOpMode {
 
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.75, -0.75, 0.75, -0.75);
+        snacktime.setDriveMotorPower(1.00, -1.00, 1.00, -1.00);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 68.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -320,7 +320,10 @@ public class FullRedSide extends LinearOpMode {
             }
 
         }
-          
+
+        snacktime.setServoClawOpen();
+
+
         // Find the line and stop
 
         snacktime.resetEncoders();
