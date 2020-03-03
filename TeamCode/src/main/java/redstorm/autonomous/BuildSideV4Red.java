@@ -27,7 +27,6 @@ public class BuildSideV4Red extends LinearOpMode {
         double runToPosEncoderCount;
         double startHeading;
 
-
         // Wait for the start button to be pushed!
         waitForStart();
 
