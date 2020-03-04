@@ -170,11 +170,11 @@ public class TwoStoneBlueSide extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(6);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(9);   // Calculate the number of encoders counts for 30inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        // Having the robot travel 6 inches back
+        // Having the robot travel 9 inches back
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
         snacktime.setDriveMotorPower(-0.5,-0.5,-0.5,-0.5);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
