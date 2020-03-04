@@ -1,12 +1,13 @@
 package redstorm.autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
 @Autonomous(name="BuildSideV3Red")
-
+@Disabled
 
 public class BuildSideV3Red extends LinearOpMode {
 
