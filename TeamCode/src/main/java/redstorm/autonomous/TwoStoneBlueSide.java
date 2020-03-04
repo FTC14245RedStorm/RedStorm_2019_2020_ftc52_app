@@ -190,12 +190,12 @@ public class TwoStoneBlueSide extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithoutEncoders();
 
-        //turn left 74 degrees
+        //turn left 95 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
         snacktime.setDriveMotorPower(-0.50, 0.50, -0.50, 0.50);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 74.0) {
+                snacktime.getHeading() < 95.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
