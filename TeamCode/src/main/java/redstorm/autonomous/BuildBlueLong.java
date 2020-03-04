@@ -1,12 +1,13 @@
 package redstorm.autonomous;
 
 import com.qualcomm.robotcore.eventloop.opmode.Autonomous;
+import com.qualcomm.robotcore.eventloop.opmode.Disabled;
 import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
 @Autonomous(name="BuildBlueLong")
-
+@Disabled
 public class BuildBlueLong extends LinearOpMode {
 
     public Robot snacktime = new Robot();    // Create a new instance of the robot
