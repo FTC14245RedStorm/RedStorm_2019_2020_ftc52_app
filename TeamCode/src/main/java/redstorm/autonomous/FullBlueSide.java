@@ -145,7 +145,7 @@ public class FullBlueSide extends LinearOpMode {
             telemetry.update();
         }
 
-        snacktime.setDriveMotorPower(0,0,0,0);
+                snacktime.setDriveMotorPower(0,0,0,0);
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
