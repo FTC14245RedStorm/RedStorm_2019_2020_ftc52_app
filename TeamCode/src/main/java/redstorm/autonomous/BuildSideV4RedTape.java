@@ -150,7 +150,7 @@ public class BuildSideV4RedTape extends LinearOpMode {
             snacktime.setDriveMotorPower(0.0, 0.0, 0.0, 0.0);
 
             snacktime.setTapeMotorPower(1.0);
-            Thread.sleep(3000);
+            Thread.sleep(2000);
             snacktime.setTapeMotorPower(0.0);
 
         }
