@@ -5,7 +5,7 @@ import com.qualcomm.robotcore.eventloop.opmode.LinearOpMode;
 
 import redstorm.Robot.Robot;
 
-@Autonomous(name="FullRedSide")
+@Autonomous(name="FullBlueSide")
 
 public class FullBlueSide extends LinearOpMode {
 
@@ -35,8 +35,8 @@ public class FullBlueSide extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(28.0);
-        snacktime.setDriveMotorPower(0.75, 0.75, 0.75, 0.75);
+        distanceToTravel = snacktime.calculateEncoderCounts(25.0);
+        snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ", snacktime.getSortedEncoderCount());
@@ -52,13 +52,13 @@ public class FullBlueSide extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(6);   // Calculate the number of encoders counts for 30inches
+        distanceToTravel = snacktime.calculateEncoderCounts(9);   // Calculate the number of encoders counts for 30inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        // Having the robot travel 6 inches back
+        // Having the robot travel 9 inches back
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(-0.75,-0.75,-0.75,-0.75);
+        snacktime.setDriveMotorPower(-1.0,-1.0,-1.0,-1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -72,10 +72,10 @@ public class FullBlueSide extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithoutEncoders();
 
-        //turn right 90 degrees
+        //turn left 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.65, -0.65, 0.65, -0.65);
+        snacktime.setDriveMotorPower(-0.65, 0.65, -0.65, 0.65);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 80.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -94,7 +94,7 @@ public class FullBlueSide extends LinearOpMode {
 
         // Having the robot travel 50 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.90,0.90,0.90,0.90);
+        snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -120,7 +120,7 @@ public class FullBlueSide extends LinearOpMode {
 
         // Having the robot travel backwards 72 inches
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.90,0.90,0.90,0.90);
+        snacktime.setDriveMotorPower(0.92,1.0,0.92,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -134,12 +134,12 @@ public class FullBlueSide extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithoutEncoders();
 
-        //turn left 90 degrees
+        //turn right 81 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.65, 0.65, -0.65, 0.65);
+        snacktime.setDriveMotorPower(0.65, -0.65, 0.65, -0.65);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 85.0) {
+                snacktime.getHeading() < 81.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -155,7 +155,7 @@ public class FullBlueSide extends LinearOpMode {
 
         // Having the robot travel 8 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.75,0.75,0.75,0.75);
+        snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -176,7 +176,7 @@ public class FullBlueSide extends LinearOpMode {
 
         // Having the robot travel 6 inches back
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(-0.75,-0.75,-0.75,-0.75);
+        snacktime.setDriveMotorPower(-1.0,-1.0,-1.0,-1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -190,12 +190,12 @@ public class FullBlueSide extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithoutEncoders();
 
-        //turn right 74 degrees
+        //turn left 82 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(0.70, -0.70, 0.70, -0.70);
+        snacktime.setDriveMotorPower(-0.70, 0.70, -0.70, 0.70);
         while (opModeIsActive() &&
-                snacktime.getHeading() < 74.0) {
+                snacktime.getHeading() < 82.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
             telemetry.addData("Current heading: ", "%5.2f", snacktime.getHeading());
             telemetry.update();
@@ -205,11 +205,11 @@ public class FullBlueSide extends LinearOpMode {
 
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncodersRTP();                   // Tell the motors to run with encoders
-        distanceToTravel = snacktime.calculateEncoderCounts(100);   // Calculate the number of encoders counts for 60 inches
+        distanceToTravel = snacktime.calculateEncoderCounts(80);   // Calculate the number of encoders counts for 60 inches
 
         runToPosEncoderCount = snacktime.calculateRTPEncoderCounts(distanceToTravel);
 
-        // Having the robot travel 100 inches
+        // Having the robot travel 80 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
         snacktime.setDriveMotorPower(1.00,1.00,1.00,1.00);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
@@ -225,10 +225,10 @@ public class FullBlueSide extends LinearOpMode {
         snacktime.resetEncoders();
         snacktime.runWithoutEncoders();
 
-        //turn left 90 degrees
+        //turn right 90 degrees
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(-0.70, 0.70, -0.70, 0.70);
+        snacktime.setDriveMotorPower(0.70, -0.70, 0.70, -0.70);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 85.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -246,7 +246,7 @@ public class FullBlueSide extends LinearOpMode {
 
         // Having the robot travel 8 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.80,0.80,0.80,0.80);
+        snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -286,7 +286,7 @@ public class FullBlueSide extends LinearOpMode {
 
         snacktime.initializeIMU();
         startHeading = snacktime.getHeading();
-        snacktime.setDriveMotorPower(1.00, -1.00, 1.00, -1.00);
+        snacktime.setDriveMotorPower(-1.00, 1.00, -1.00, 1.00);
         while (opModeIsActive() &&
                 snacktime.getHeading() < 68.0) {
             telemetry.addData("Starting heading: ", "%5.2f", startHeading);
@@ -332,7 +332,7 @@ public class FullBlueSide extends LinearOpMode {
 
         // Find the line and stop
 
-        snacktime.setDriveMotorPower(-0.75,-0.75, -0.75, -0.75);
+        snacktime.setDriveMotorPower(-1.0,-1.0, -1.0, -1.0);
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
@@ -354,7 +354,7 @@ public class FullBlueSide extends LinearOpMode {
 
         // Having the robot travel 3 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.5,0.5,0.5,0.5);
+        snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());

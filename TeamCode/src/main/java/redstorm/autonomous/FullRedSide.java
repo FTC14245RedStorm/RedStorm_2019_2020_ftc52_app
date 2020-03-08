@@ -36,7 +36,7 @@ public class FullRedSide extends LinearOpMode {
         snacktime.resetEncoders();                     // Reset the encoder counts
         snacktime.runWithEncoders();                   // Tell the motors to run with encoders
         distanceToTravel = snacktime.calculateEncoderCounts(28.0);
-        snacktime.setDriveMotorPower(0.75, 0.75, 0.75, 0.75);
+        snacktime.setDriveMotorPower(1.0, 1.0, 1.0, 1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < distanceToTravel) {
             telemetry.addData("Distance To Travel: ", distanceToTravel);
             telemetry.addData("Encoder Count: ", snacktime.getSortedEncoderCount());
@@ -58,7 +58,7 @@ public class FullRedSide extends LinearOpMode {
 
         // Having the robot travel 6 inches back
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(-0.75,-0.75,-0.75,-0.75);
+        snacktime.setDriveMotorPower(-1.0,-1.0,-1.0,-1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -94,7 +94,7 @@ public class FullRedSide extends LinearOpMode {
 
         // Having the robot travel 50 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.90,0.90,0.90,0.90);
+        snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -120,7 +120,7 @@ public class FullRedSide extends LinearOpMode {
 
         // Having the robot travel backwards 72 inches
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.90,0.90,0.90,0.90);
+        snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -155,7 +155,7 @@ public class FullRedSide extends LinearOpMode {
 
         // Having the robot travel 8 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.75,0.75,0.75,0.75);
+        snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -176,7 +176,7 @@ public class FullRedSide extends LinearOpMode {
 
         // Having the robot travel 6 inches back
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(-0.75,-0.75,-0.75,-0.75);
+        snacktime.setDriveMotorPower(-1.0,-1.0,-1.0,-1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -246,7 +246,7 @@ public class FullRedSide extends LinearOpMode {
 
         // Having the robot travel 8 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.80,0.80,0.80,0.80);
+        snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
@@ -332,7 +332,7 @@ public class FullRedSide extends LinearOpMode {
 
         // Find the line and stop
 
-        snacktime.setDriveMotorPower(-0.75,-0.75, -0.75, -0.75);
+        snacktime.setDriveMotorPower(-1.0,-1.0, -1.0, -1.0);
         snacktime.setDTMotorPosition(-(int)runToPosEncoderCount);
         telemetry.addData("Hue: ", snacktime.getHue());
         telemetry.update();
@@ -354,7 +354,7 @@ public class FullRedSide extends LinearOpMode {
 
         // Having the robot travel 3 inches
         snacktime.setDTMotorPosition((int)runToPosEncoderCount);
-        snacktime.setDriveMotorPower(0.5,0.5,0.5,0.5);
+        snacktime.setDriveMotorPower(1.0,1.0,1.0,1.0);
         while (opModeIsActive() && snacktime.getSortedEncoderCount() < runToPosEncoderCount) {
             telemetry.addData("Distance To Travel: ", runToPosEncoderCount);
             telemetry.addData("Encoder Count: ",snacktime.getSortedEncoderCount());
